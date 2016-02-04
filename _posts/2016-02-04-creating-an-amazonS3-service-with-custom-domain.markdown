@@ -62,11 +62,10 @@ Logon to your web host control panel and select “Manage DNS Server Settings”
 *The `Endpoint` URL mentioned above in Step 2 will be used here in the Value field. Keep it ready.*
 
 Create a new CNAME entry for your domain. This example will be  `images.customdomain` and the fields to complete were:
-```
-Name: images  
-Type: CNAME  
-Value: images.customdomain.s3.amazonaws.com.  
-```
+
+**Name**: *images*  
+**Type**: *CNAME*  
+**Value**: *images.customdomain.s3.amazonaws.com.*  
 
 The dot at the end of `images.customdomain.S3.amazonaws.com.` as our above example shows is important. Without the full stop at the end of the Value entry it will create an incorrect entry and the subdomain will not work.
 
