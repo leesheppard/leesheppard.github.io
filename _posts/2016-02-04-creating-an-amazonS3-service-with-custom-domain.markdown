@@ -12,7 +12,7 @@ Let's assume also that you have a domain name already in use. And from that doma
 
 We haven't as yet created a subdomain but with the name in mind we MUST ensure that this name is used when creating a bucket in the S3 service. As we mentioned, we will use `images.customdomain.com` as our intended subdomain name. 
 
-##Creating a bucket in Amazon S3
+## Creating a bucket in Amazon S3
 A bucket in the S3 service is just a fancy title for a folder on their server.
 
 ### Step 1 - Create a new bucket
@@ -45,19 +45,19 @@ Disallow: /
 
 ***Next procedure...***
 
-##Pointing a new custom domain
+## Pointing a new custom domain
 
 Most domain resellers give you very little freedom when creating domains and subdomains. Some web hosting services allow you to create subdomains through cPanel for example which is great but is painful when you need to move your website elsewhere of hosting. You can still purchase a domain name through a reseller, but you should invest in a DNS Management service to give you the flexibility to freely amend all the records for your domain/s. Companies like [DNS Made Easy](http://www.dnsmadeeasy.com) or [NO-IP](http://www.noip.com/managed-dns) are reasonably priced and have friendly user interfaces to work with. Some domain resellers charge higher fees for domain names, this usually means they provide you with a higher level of options including the ability to manage DNS entries more easily. 
 
 
-###Modifying your DNS server settings
+### Modifying your DNS server settings
 
 The procedures on how to do this will vary. In general the steps are:
 
-####Step 1
+#### Step 1
 Logon to your web host control panel and select “Manage DNS Server Settings” or similar.
 
-####Step 2 
+#### Step 2 
 
 *The `Endpoint` URL mentioned above in Step 2 will be used here in the Value field. Keep it ready.*
 
@@ -70,7 +70,7 @@ Value: images.customdomain.s3.amazonaws.com.
 
 The dot at the end of `images.customdomain.S3.amazonaws.com.` as our above example shows is important. Without the full stop at the end of the Value entry it will create an incorrect entry and the subdomain will not work.
 
-#Finish
+# Finish
 Well that is it, you should now be able to load up your new custom domain in a browser and use the location to host images for your site. If you have any suggestions or comments to improve this tutorial let me know. 
 
 My email address is: <lee@leesheppard.com>
