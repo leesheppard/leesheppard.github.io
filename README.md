@@ -1,3 +1,5 @@
+<a href="https://codeclimate.com/github/leesheppard/leesheppard.github.io"><img src="https://codeclimate.com/github/leesheppard/leesheppard.github.io/badges/gpa.svg" /></a>
+
 # lee.sheppard.io
 This is the code for my personal tech blog. 
 
