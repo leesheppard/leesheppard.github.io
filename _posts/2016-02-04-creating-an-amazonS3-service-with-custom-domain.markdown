@@ -73,5 +73,3 @@ The dot at the end of `images.customdomain.S3.amazonaws.com.` as our above examp
 
 # Finish
 Well that is it, you should now be able to load up your new custom domain in a browser and use the location to host images for your site. If you have any suggestions or comments to improve this tutorial let me know. 
-
-My email address is: <lee@leesheppard.com>
