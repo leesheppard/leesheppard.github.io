@@ -15,6 +15,8 @@ And in 1998 he was once again nominated by Jim Russell to the ranks of the Natio
 
 Lee was the cartoonist that drew Cactus Island, a newspaper comic strip based on the multi award winning radio show How Green Was My Cactus, ran for over six years. It was syndicated through Auspac Media and was published across the nation in newspapers and heard live on radio.
 
+As a young boy, Lee learnt to program computers. As a freelance cartoonist he was one of the first in the country to have a website which he programmed and maintained himself. Lee programs in many web languages today and is currently learning and developing using Ruby on Rails.
+
 Lee can also be found on these way cool hip sites:
 
 [Member of SCBWI Australia/New Zealand](http://www.scbwi.org/members-public/lee-sheppard)
@@ -27,6 +29,10 @@ Lee can also be found on these way cool hip sites:
 
 [Wikipaedia](https://en.wikipedia.org/wiki/Lee_Sheppard_(cartoonist))
 
-This website is built using Ruby and Jekyll. You can find the source code for `Jekyll` at
+[Github](http://www.github.com/leesheppard)
+
+This website is built using Ruby and Jekyll.
+
+You can find the source code for `Jekyll` at
 {% include icon-github.html username="jekyll" %} /
 [jekyll](https://github.com/jekyll/jekyll)
