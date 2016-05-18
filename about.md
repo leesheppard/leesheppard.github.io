@@ -3,6 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
+![Pirate](http://assets.sheppard.io/jpg/pirate_blue_sketch.jpg)
 
 Lee Sheppard is an artist and writer based in Sydney. His study included two years of fine arts at Paddington Art School under tuition by Stephen Wesley Gorton, classical advanced animation studies at Enmore Design Centre and screenwriting for children’s animated television series at the Australian Film Television Radio School (AFTRS).
 
@@ -26,6 +27,6 @@ Lee can also be found on these way cool hip sites:
 
 [Wikipaedia](https://en.wikipedia.org/wiki/Lee_Sheppard_(cartoonist))
 
-This website is built using Ruby and Jekyll. You can find the source code for Jekyll at
+This website is built using Ruby and Jekyll. You can find the source code for `Jekyll` at
 {% include icon-github.html username="jekyll" %} /
 [jekyll](https://github.com/jekyll/jekyll)
