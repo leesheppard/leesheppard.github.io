@@ -6,7 +6,7 @@ categories: tutorial
 ---
 ![Pirate](http://assets.sheppard.io/characters/leesheppard_thumb_pirate.png)
 
-I haven't found updated instructions online to date that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from [Amazon Web Services](https://aws.amazon.com). Here is how I set mine up.
+I haven't found up to date instructions online that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from [Amazon Web Services](https://aws.amazon.com). Here is how I set mine up.
 
 This tutorial assumes that you have already set up an account with AWS.
 
