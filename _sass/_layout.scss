@@ -105,6 +105,7 @@
 .footer-heading {
     font-size: 18px;
     margin-bottom: $spacing-unit / 2;
+    font-family: $header-font-family;
 }
 
 .contact-list,
@@ -173,6 +174,7 @@
 
 .page-heading {
     font-size: 20px;
+    font-family: $header-font-family;
 }
 
 .post-list {
@@ -207,6 +209,7 @@
     font-size: 42px;
     letter-spacing: -1px;
     line-height: 1;
+    font-family: $header-font-family;
 
     @include media-query($on-laptop) {
         font-size: 36px;
