@@ -1,8 +1,9 @@
 ---
-layout: page
 title: About
-permalink: /about/
+permalink: "/about/"
+layout: page
 ---
+
 ![Pirate](http://assets.sheppard.io/jpg/pirate_blue_sketch.jpg)
 
 Lee Sheppard is an artist and writer based in Sydney. His study included two years of fine arts at Paddington Art School under tuition by Stephen Wesley Gorton, classical advanced animation studies at Enmore Design Centre and screenwriting for children’s animated television series at the Australian Film Television Radio School (AFTRS).

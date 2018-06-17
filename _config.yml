@@ -1,21 +1,20 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
+---
 title: Lee Sheppard
-email: lee@leesheppard.com
-description: > # this means to ignore newlines until "baseurl:"
-  I'm a Sydney based writer, cartoonist and code monkey. I've won various awards
-  in many industries. Member of SCBWI Australia/NZ.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://leesheppard.github.io" # the base hostname & protocol for your site
-twitter_username: leesheppard
-github_username:  leesheppard
 timezone: Australia/Sydney
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+email: lee@leesheppard.com
+description: 'I''m a Sydney based writer, cartoonist and code monkey. I''ve won various
+  awards in many industries. Member of SCBWI Australia/NZ.
 
-# Build settings
+'
+baseurl: ''
+url: http://leesheppard.github.io
+twitter_username: leesheppard
+github_username: leesheppard
 markdown: kramdown

@@ -1,8 +1,9 @@
 ---
+title: Change the default location for Screenshots in MacOS
+date: 2016-10-01 12:48:54 +10:00
+categories:
+- tips
 layout: post
-title:  "Change the default location for Screenshots in MacOS"
-date:   2016-10-01 13:48:54 +1100
-categories: tips
 ---
 
 Open [Terminal](https://en.wikipedia.org/wiki/Terminal_(macOS)) and type the following command:
