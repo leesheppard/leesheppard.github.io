@@ -18,6 +18,7 @@ url: http://leesheppard.github.io
 twitter_username: leesheppard
 github_username: leesheppard
 markdown: kramdown
-
-gems: [jekyll-watch, jekyll-assets, jekyll-admin]
-# This will require each of these gems automatically.
+gems:
+- jekyll-watch
+- jekyll-assets
+- jekyll-admin
