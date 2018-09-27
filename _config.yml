@@ -19,3 +19,6 @@ timezone: Australia/Sydney
 
 # Build settings
 markdown: kramdown
+
+gems: [jekyll-watch, jekyll-assets, jekyll-admin]
+# This will require each of these gems automatically.
