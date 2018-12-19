@@ -1,5 +1,7 @@
 <a href="https://codeclimate.com/github/leesheppard/leesheppard.github.io"><img src="https://codeclimate.com/github/leesheppard/leesheppard.github.io/badges/gpa.svg" /></a>
 
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/leesheppard/leesheppard.github.io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/leesheppard/leesheppard.github.io/alerts/)
+
 # lee.sheppard.io
 This is the repository for my personal blog. Thanks for checking out my code.
 
@@ -7,7 +9,7 @@ This is the repository for my personal blog. Thanks for checking out my code.
 Built using Jekyll 3.1.1
 
 # Copyright
-Images, specifically illustrations, used in this blog are subject to copyrighted by Lee Sheppard.
+Images, specifically illustrations, used in this blog are subject to copyright by Lee Sheppard.
 
 # Social
 
