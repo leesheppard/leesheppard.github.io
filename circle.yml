@@ -1,3 +1,5 @@
+version: 2
+
 ## Customize the test machine
 machine:
 
@@ -7,13 +9,13 @@ machine:
   # Version of ruby to use
   ruby:
     version:
-      2.3.1
+      2.5.1
 
 ## Customize dependencies
 dependencies:
   pre:
     - gem install bundler --pre
 
-test:
-  post:
-    - curl -sSL https://download.sourceclear.com/ci.sh | sh
+#test:
+#  post:
+#    - curl -sSL https://download.sourceclear.com/ci.sh | sh
