@@ -18,6 +18,6 @@ url: http://leesheppard.github.io
 twitter_username: leesheppard
 github_username: leesheppard
 markdown: kramdown
-gems:
+plugins:
 - jekyll-watch
 - jekyll-assets
