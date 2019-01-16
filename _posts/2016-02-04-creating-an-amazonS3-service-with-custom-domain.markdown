@@ -1,9 +1,11 @@
 ---
+title: Creating an Amazon S3 service to host images using a custom domain
+date: 2016-02-04 13:48:54 +11:00
+categories:
+- tutorial
 layout: post
-title:  "Creating an Amazon S3 service to host images using a custom domain"
-date:   2016-02-04 13:48:54 +1100
-categories: tutorial
 ---
+
 ![Pirate](http://assets.sheppard.io/characters/leesheppard_thumb_pirate.png)
 
 I haven't found up to date instructions online that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from [Amazon Web Services](https://aws.amazon.com). Here is how I set mine up.

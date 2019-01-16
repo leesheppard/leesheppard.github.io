@@ -1,14 +1,21 @@
-# Site settings
+---
 title: Lee Sheppard
-email: lee@leesheppard.com
-description: > # this means to ignore newlines until "baseurl:"
-  I'm a Sydney based writer, cartoonist and code monkey. I've won various awards
-  in many industries. Member of SCBWI Australia/NZ.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://leesheppard.github.io" # the base hostname & protocol for your site
-twitter_username: leesheppard
-github_username:  leesheppard
 timezone: Australia/Sydney
-
-# Build settings
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+email: lee@leesheppard.com
+description: "I'm a Sydney based writer, cartoonist and code monkey. I've won various
+  awards in many industries. Member of SCBWI Australia/NZ."
+baseurl: 
+url: http://leesheppard.github.io
+twitter_username: leesheppard
+github_username: leesheppard
 markdown: kramdown
+plugins:
+- jekyll-watch
+- jekyll-assets

@@ -5,6 +5,12 @@
   <link rel="dns-prefetch" href="//ajax.googleapis.com">
   <link rel="dns-prefetch" href="//google-analytics.com">
 
+  <!-- Add to home screen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Lee Sheppard">
+  <link rel="apple-touch-icon" href="http://assets.sheppard.io/png/sheppard-io-fav-167x167@2x.png">
+
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link href="http://assets.sheppard.io/png/sheppard-io-fav-60x60@2x.png" rel="apple-touch-icon" />
@@ -14,7 +20,7 @@
   <link href="http://assets.sheppard.io/png/sheppard-io-fav-167x167@2x.png" rel="apple-touch-icon" sizes="180x180" />
   <link href="http://assets.sheppard.io/png/sheppard-io-fav-256x256.png" rel="icon" sizes="192x192" />
   <link href="http://assets.sheppard.io/png/sheppard-io-fav-128x128.png" rel="icon" sizes="128x128" />
-  <link rel="icon" type="image/x-icon" href="{{ '/sheppard-io-fav.ico' | prepend: site.baseurl }}">
+  <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ '/css/main.css' | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | prepend: site.baseurl | prepend: site.url }}">
@@ -33,4 +39,29 @@
     document.createElement( "picture" );
   </script>
   <script src="{{ '/js/picturefill.min.js' | prepend: site.baseurl }}" async></script>
+
+  <!-- Start of Async Drift Code -->
+  <script>
+  !function() {
+    var t;
+    if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+    t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+    t.factory = function(e) {
+      return function() {
+        var n;
+        return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+      };
+    }, t.methods.forEach(function(e) {
+      t[e] = t.factory(e);
+    }), t.load = function(t) {
+      var e, n, o, i;
+      e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+      o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+      n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+    });
+  }();
+  drift.SNIPPET_VERSION = '0.3.1';
+  drift.load('castuikwug3n');
+  </script>
+  <!-- End of Async Drift Code -->
 </head>
