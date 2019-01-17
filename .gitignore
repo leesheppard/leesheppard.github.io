@@ -2,6 +2,6 @@
 .sass-cache
 .jekyll-metadata
 .DS_Store
-.idea/
-.idea/workspace.xml
 .idea
+node_modules/
+src/assets/bundle.js
