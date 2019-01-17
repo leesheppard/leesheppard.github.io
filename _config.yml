@@ -11,7 +11,7 @@ collections:
 email: lee@leesheppard.com
 description: "I'm a Sydney based writer, cartoonist and code monkey. I've won various
   awards in many industries. Member of SCBWI Australia/NZ."
-baseurl: 
+baseurl: lee.sheppard.io
 url: http://leesheppard.github.io
 twitter_username: leesheppard
 github_username: leesheppard
@@ -19,3 +19,6 @@ markdown: kramdown
 plugins:
 - jekyll-watch
 - jekyll-assets
+destination: public
+source: src
+exclude: ['node_modules']
