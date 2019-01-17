@@ -1,7 +1,7 @@
 module.exports = {
     entry: "./webpack/entry.js",
     output: {
-        path: __dirname + "/assets/js", // or path: path.join(__dirname, "assets/js"),
+        path: __dirname + "src/assets/js", // or path: path.join(__dirname, "assets/js"),
         filename: "bundle.js"
     },
     module: {
