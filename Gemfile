@@ -3,7 +3,7 @@ ruby "2.5.3"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
-gem 'html-proofer'
+gem 'html-proofer', '>= 3.10.1'
 
 group :development do
   gem "guard", "~> 2.14"
@@ -13,14 +13,14 @@ end
 group :development, :test do
   gem "rspec"
   gem "selenium-webdriver"
-  gem "chromedriver-helper"
-  gem "capybara"
+  gem "chromedriver-helper", ">= 2.1.0"
+  gem "capybara", ">= 3.12.0"
   gem "rack-jekyll"
   gem "pry"
 end
 
 group :jekyll_plugins do
-  gem "github-pages", ">= 3.8.5"
+  gem "github-pages", ">= 193"
   gem "jekyll-feed", "~> 0.6"
   # incorporate LiveReload
   gem "hawkins", "~> 2.0"
