@@ -12,7 +12,7 @@ end
 
 group :development, :test do
   gem "rspec"
-  gem "selenium-webdriver"
+  gem "selenium-webdriver", ">= 3.141.0"
   gem "chromedriver-helper", ">= 2.1.0"
   gem "capybara", ">= 3.12.0"
   gem "rack-jekyll"
@@ -20,7 +20,7 @@ group :development, :test do
 end
 
 group :jekyll_plugins do
-  gem "github-pages", ">= 193"
+  gem "github-pages", ">= 198"
   gem "jekyll-feed", "~> 0.6"
   # incorporate LiveReload
   gem "hawkins", "~> 2.0"
