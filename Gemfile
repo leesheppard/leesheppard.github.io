@@ -14,8 +14,8 @@ group :development, :test do
   gem "rspec"
   gem "selenium-webdriver", ">= 3.141.0"
   gem "chromedriver-helper", ">= 2.1.1"
-  gem "capybara", ">= 3.28.0"
-  gem "rack-jekyll"
+  gem "capybara", ">= 3.29.0"
+  gem "rack-jekyll", ">= 0.5.0"
   gem "pry"
 end
 
