@@ -17,7 +17,13 @@ baseurl:
 url: http://leesheppard.github.io
 twitter_username: leesheppard
 github_username: leesheppard
+
+# Build settings
 markdown: kramdown
 plugins:
 - jekyll-watch
 - jekyll-assets
+- jekyll-feed
+exclude: ['.circleci', 'spec', 'travis.yml', '.idea']
+destination: public
+source: src
