@@ -7,7 +7,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.5.3
     environment:
-      BUNDLE_PATH: ~/repo/vendor/bundle
+      BUNDLE_PATH: ~/leesheppard.github.io/vendor/bundle
     steps:
       - checkout
       - restore_cache:
@@ -37,6 +37,6 @@ jobs:
           name: Jekyll build
           command: bundle exec jekyll build
       - persist_to_workspace:
-          root: ./
+          root: src
           paths:
-            - _site
+            - public
