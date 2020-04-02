@@ -24,6 +24,7 @@ plugins:
 - jekyll-watch
 - jekyll-assets
 - jekyll-feed
+- jekyll-sitemap
 exclude: ['.circleci', 'spec', 'travis.yml', '.idea']
 destination: public
 source: src

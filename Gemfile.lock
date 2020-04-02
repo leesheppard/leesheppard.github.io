@@ -334,6 +334,7 @@ DEPENDENCIES
   hawkins (~> 2.0)
   html-proofer (>= 3.11.1)
   jekyll-feed (~> 0.6)
+  jekyll-sitemap
   pry
   rack-jekyll
   rspec
