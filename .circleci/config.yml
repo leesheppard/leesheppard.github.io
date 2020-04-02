@@ -1,5 +1,5 @@
 defaults: &defaults
-  working_directory: ~/repo
+  working_directory: ~/leesheppard.github.io
 version: 2
 jobs:
   build:
