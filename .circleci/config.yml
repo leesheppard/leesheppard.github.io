@@ -37,6 +37,6 @@ jobs:
           name: Jekyll build
           command: bundle exec jekyll build
       - persist_to_workspace:
-          root: src
+          root: .
           paths:
             - public
