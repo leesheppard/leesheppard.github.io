@@ -4,15 +4,20 @@
 
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/leesheppard/leesheppard.github.io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/leesheppard/leesheppard.github.io/alerts/)
 
+[![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
+
 # lee.sheppard.io
-This is the repository for my personal blog.
+This is the repository for my personal blog and to serve as an example of development literacy.
 
 Thanks for checking out my work.
 
 ![Lee Sheppard signature](http://res.cloudinary.com/leesheppard/image/upload/v1496495524/Lee-Sheppard-Black_iv1j84.png)
 
 # Requirements
-Built using Jekyll
+- [Ruby](Gemfile#L2)
+- [Bundler](https://bundler.io)
+- [Jekyll](https://jekyllrb.com)
+- Deployed via GH-Pages
 
 # Install
 ```
@@ -21,19 +26,14 @@ $ cd git@github.com:leesheppard/leesheppard.github.io.git
 $ bundle install
 ```
 
-To upgrade run:
-
-```
-$ bundle update github-pages
-```
-
 # How to run the app
 
 Run Jekyll with:
 
-```
-$ bundle exec jekyll serve
-```
+````bash
+$ jekyll build -w
+$ jekyll serve
+````
 
 # Copyright
 Images, specifically illustrations, used in this blog are subject to copyright by Lee Sheppard.
