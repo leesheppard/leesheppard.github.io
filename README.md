@@ -35,6 +35,22 @@ $ jekyll build -w
 $ jekyll serve
 ````
 
+# Modifications
+
+### CI/CD
+CircleCI is used to integrate and operate tests.
+
+### File Structure
+This folder structure has been modified from the original Jekyll install. I prefer to keep the main directory structure 
+clean and have removed the `_site` folder and added `src` for the development files and a `public` folder to push all 
+build files into when ready to deploy.
+
+These changes require to modify the [config file](_config.yml) to recognise the change locations.
+```yaml
+destination: public
+source: src
+```
+
 # Copyright
 Images, specifically illustrations, used in this blog are subject to copyright by Lee Sheppard.
 
