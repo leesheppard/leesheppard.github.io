@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lee Sheppard</title>
-    <description>I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.
-</description>
+    <description>I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.</description>
     <link>http://leesheppard.github.io/</link>
     <atom:link href="http://leesheppard.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Apr 2020 13:36:23 +1100</pubDate>
-    <lastBuildDate>Thu, 02 Apr 2020 13:36:23 +1100</lastBuildDate>
+    <pubDate>Thu, 02 Apr 2020 23:06:10 +1100</pubDate>
+    <lastBuildDate>Thu, 02 Apr 2020 23:06:10 +1100</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
     
       <item>

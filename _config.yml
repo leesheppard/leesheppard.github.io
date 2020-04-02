@@ -10,15 +10,15 @@ collections:
     output: true
 email: lee@leesheppard.com
 description: 'I''m a Sydney based writer, cartoonist and code monkey. I''ve won various
-  awards in many industries. Member of SCBWI Australia/NZ.
-
-'
-baseurl: 
+  awards in many industries. Member of SCBWI Australia/NZ.'
+repository: leesheppard/leesheppard.github.io
+baseurl: ""
 url: http://leesheppard.github.io
 twitter_username: leesheppard
 github_username: leesheppard
 
 # Build settings
+github: [metadata]
 markdown: kramdown
 plugins:
 - jekyll-watch
