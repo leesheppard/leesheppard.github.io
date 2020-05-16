@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 ruby "2.5.3"
 
-# gem "jekyll", "~> 4.0"
+# gem "jekyll", "3.8.5"
 # If you want to use GitHub Pages, remove the "gem 'jekyll'" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 gem 'html-proofer', '>= 3.11.1'
-gem 'jekyll-sitemap'
+gem 'jekyll-sitemap', '~> 1.4.0'
 
 group :development do
   gem "guard", "~> 2.14"
@@ -22,8 +22,9 @@ group :development, :test do
 end
 
 group :jekyll_plugins do
-  gem "github-pages", ">= 198"
-  gem "jekyll-feed", "~> 0.6"
+  gem "github-pages", ">= 204"
+  gem "jekyll-assets"
+  gem "jekyll-feed", "~> 0.13.0"
   # incorporate LiveReload
   gem "hawkins", "~> 2.0"
 end
