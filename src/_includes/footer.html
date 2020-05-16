@@ -33,6 +33,47 @@
       </div>
     </div>
 
+    <nav class="site-nav">
+      <div class="trigger">
+        <dl>
+          {% for my_page in site.pages %}
+          {% if my_page.title %}
+          <dd>
+            <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          </dd>
+          {% endif %}
+          {% endfor %}
+          <dd class="rss-subscribe">
+            <i class="fal fa-rss-square"></i> subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
+          </dd>
+        </dl>
+
+        <dl>
+          <dd>
+            <a href="https://lookatmydoodle.com"><i class="fal fa-browser"></i> Look at my Doodle</a>
+          </dd>
+          <dd>
+            <a href="https://toonstudio.com.au"><i class="fal fa-browser"></i> Toon Studio</a>
+          </dd>
+          <dd>
+            <a href="https://leesheppard.com"><i class="fal fa-browser"></i> Lee Sheppard</a>
+          </dd>
+        </dl>
+        <dl>
+          <dd>
+            <a href="https://dribbble.com/leesheppard"><i class="fab fa-dribbble"></i> Dribbble</a>
+          </dd>
+          <dd>
+            <a href="https://instgram.com/leesheppard"><i class="fab fa-instagram"></i> Instagram</a>
+          </dd>
+          <dd>
+            <a href="https://www.linkedin.com/in/leesheppard"><i class="fab fa-linkedin-in"></i> Linkedin</a>
+          </dd>
+        </dl>
+
+      </div>
+    </nav>
+
   </div>
 
 </footer>

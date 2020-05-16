@@ -3,51 +3,43 @@
 
 @charset "utf-8";
 
-
 // Our variables
 $base-font-family: 'Roboto', sans-serif;
+$header-font-family: 'Roboto Slab', serif;
 $base-font-size:   16px;
 $base-font-weight: 400;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
-$header-font-family: 'Roboto Slab', serif;
-
 $spacing-unit:     30px;
 
 $text-color:       #111;
 $background-color: clear; //fdfdfd
 $brand-color:      #2a7ae2;
-
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
+// Dark wine reds
+$gondola: #280a1a;
+$seal-brown: #2e0b1d;
+$melanzane: #350c20;
+$toledo: #3b0d23;
+$very-dark-plum: #420f27;
+
 // Width of the content area
 $content-width:    800px;
-
 $on-palm:          600px;
 $on-laptop:        800px;
 
-
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
         @content;
     }
 }
 
-
-
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "syntax-highlighting"
+  "base",
+  "layout",
+  "syntax-highlighting"
 ;

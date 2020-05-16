@@ -2,8 +2,6 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
@@ -11,12 +9,15 @@
 }
 
 .site-title {
+    display: block;
     font-size: 26px;
     font-weight: 300;
+    height: 120px;
     line-height: 56px;
     letter-spacing: -1px;
-    margin-bottom: 0;
-    float: left;
+    margin: 0 auto;
+    padding: 50px 0;
+    width: 120px;
 
     &,
     &:visited {
@@ -25,8 +26,15 @@
 }
 
 .site-nav {
-    float: right;
     line-height: 56px;
+
+    dl {
+        display: flex;
+    }
+
+    dd {
+        margin-right: 20px;
+    }
 
     .menu-icon {
         display: none;
@@ -91,8 +99,6 @@
         }
     }
 }
-
-
 
 /**
  * Site footer
