@@ -22,7 +22,7 @@ Thanks for checking out my work.
 # Install
 ```
 $ git clone git@github.com:leesheppard/leesheppard.github.io.git
-$ cd git@github.com:leesheppard/leesheppard.github.io.git
+$ cd leesheppard.github.io
 $ bundle install
 ```
 
