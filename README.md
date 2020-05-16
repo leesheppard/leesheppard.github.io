@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/leesheppard/leesheppard.github.io/tree/master.svg?style=svg)](https://circleci.com/gh/leesheppard/leesheppard.github.io/tree/master)
 <a href="https://codeclimate.com/github/leesheppard/leesheppard.github.io"><img src="https://codeclimate.com/github/leesheppard/leesheppard.github.io/badges/gpa.svg" /></a>
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/leesheppard/leesheppard.github.io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/leesheppard/leesheppard.github.io/alerts/)
-
+[![Build Status](https://travis-ci.com/leesheppard/leesheppard.github.io.svg?branch=master)](https://travis-ci.com/leesheppard/leesheppard.github.io)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
 
 # lee.sheppard.io
