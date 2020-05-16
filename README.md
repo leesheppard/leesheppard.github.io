@@ -1,7 +1,5 @@
 [![CircleCI](https://circleci.com/gh/leesheppard/leesheppard.github.io/tree/master.svg?style=svg)](https://circleci.com/gh/leesheppard/leesheppard.github.io/tree/master)
-
 <a href="https://codeclimate.com/github/leesheppard/leesheppard.github.io"><img src="https://codeclimate.com/github/leesheppard/leesheppard.github.io/badges/gpa.svg" /></a>
-
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/leesheppard/leesheppard.github.io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/leesheppard/leesheppard.github.io/alerts/)
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
@@ -17,10 +15,10 @@ Thanks for checking out my work.
 - [Ruby](Gemfile#L2)
 - [Bundler](https://bundler.io)
 - [Jekyll](https://jekyllrb.com)
-- Deployed via GH-Pages
+- Deployed via GH-Pages, [check dependency support](https://pages.github.com/versions/)
 
 # Install
-```
+```bash
 $ git clone git@github.com:leesheppard/leesheppard.github.io.git
 $ cd leesheppard.github.io
 $ bundle install
@@ -30,10 +28,16 @@ $ bundle install
 
 Run Jekyll with:
 
-````bash
+```bash
 $ jekyll build -w
 $ jekyll serve
-````
+```
+
+Visit [http://localhost:4000](http://localhost:4000)
+
+Remove all generated files: destination folder, metadata file, Sass and Jekyll caches.
+
+    $ jekyll clean
 
 # Modifications
 
@@ -51,12 +55,14 @@ destination: public
 source: src
 ```
 
+
 # Copyright
-Images, specifically illustrations, used in this blog are subject to copyright by Lee Sheppard.
+Images, specifically illustrations, used in this application are subject to copyright by Lee Sheppard.
 
 # Social
 [![Hello](https://img.shields.io/badge/Hello-%40leesheppard-blue.svg)](https://twitter.com/leesheppard)
 
-<a href="http://stackoverflow.com/users/1061237/lee-sheppard">
-<img src="http://stackoverflow.com/users/flair/1061237.png" width="208" height="58" alt="profile for Lee Sheppard at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Lee Sheppard at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
-</a>
+- [Dribbble](https://dribbble.com/leesheppard)
+- [Instagram](https://instagram.com/leesheppard)
+- [Linkedin](https://www.linkedin.com/in/leesheppard)
+- [Twitter](https://twitter.com/leesheppard)
