@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby "2.5.3"
 
-# gem "jekyll", "3.8.5"
+# gem "jekyll", "~> 3.8.5"
 # If you want to use GitHub Pages, remove the "gem 'jekyll'" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 gem 'html-proofer', '>= 3.11.1'
