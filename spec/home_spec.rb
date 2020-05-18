@@ -1,5 +1,7 @@
-describe "Site", type: :feature, js: true do
-  it "has the page title" do
+# frozen_string_literal: true
+
+describe 'Site', type: :feature, js: true do
+  it 'has the page title' do
     visit '/'
     # `binding.pry` is useful for crafting the right selector
     # or checking the actual state of the page

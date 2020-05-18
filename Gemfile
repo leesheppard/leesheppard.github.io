@@ -1,26 +1,28 @@
-source "https://rubygems.org"
-ruby "2.7.0"
+# frozen_string_literal: true
 
-gem "jekyll", "~> 4.0"
-gem "json"
-gem "hash-joiner"
+source 'https://rubygems.org'
+ruby '2.7.0'
+
+gem 'hash-joiner'
+gem 'jekyll', '~> 4.0'
+gem 'json'
 
 group :development do
-  gem "guard", "~> 2.14"
-  gem "guard-process", "~> 1.2"
+  gem 'guard', '~> 2.14'
+  gem 'guard-process', '~> 1.2'
 end
 
 group :development, :test do
-  gem "html-proofer", "~> 3.15"
-  gem "rspec"
-  gem "selenium-webdriver", ">= 3.141.0"
-  gem "webdrivers"
-  gem "capybara", ">= 3.32.0"
-  gem "rack-jekyll"
-  gem "pry"
+  gem 'capybara', '>= 3.32.0'
+  gem 'html-proofer', '~> 3.15'
+  gem 'pry'
+  gem 'rack-jekyll'
+  gem 'rspec'
+  gem 'selenium-webdriver', '>= 3.141.0'
+  gem 'webdrivers'
 end
 
 group :jekyll_plugins do
-  gem "jekyll-feed", ">= 0.13"
-  gem "jekyll-sitemap", "~> 1.4"
+  gem 'jekyll-feed', '>= 0.13'
+  gem 'jekyll-sitemap', '~> 1.4'
 end
