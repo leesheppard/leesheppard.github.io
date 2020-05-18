@@ -5,7 +5,7 @@ jobs:
   build:
     <<: *defaults
     docker:
-      - image: circleci/ruby:2.5.3
+      - image: circleci/ruby:2.7.0
     environment:
       BUNDLE_PATH: ~/leesheppard.github.io/vendor/bundle
     steps:
