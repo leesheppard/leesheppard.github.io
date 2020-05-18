@@ -16,14 +16,14 @@ group :development, :test do
   gem "rspec"
   gem "selenium-webdriver", ">= 3.141.0"
   gem "webdrivers"
-  gem "capybara", ">= 3.28.0"
+  gem "capybara", ">= 3.32.0"
   gem "rack-jekyll"
   gem "pry"
 end
 
 group :jekyll_plugins do
   gem "github-pages", ">= 204"
-  gem "jekyll-assets"
+  gem "jekyll-assets", ">= 3.0.0"
   gem "jekyll-feed", "~> 0.13.0"
   # incorporate LiveReload
   gem "hawkins", "~> 2.0"
