@@ -27,6 +27,13 @@ $ bundle install
 
 # How to run the app
 
+### Monitor files
+
+This app uses Guard to monitor file changes. Start Guard with the following command:
+
+    $ bundle exec guard
+
+### Run app
 Run Jekyll with:
 
 ```bash
@@ -36,14 +43,21 @@ $ jekyll serve
 
 Visit [http://localhost:4000](http://localhost:4000)
 
+### Cleanup
+
 Remove all generated files: destination folder, metadata file, Sass and Jekyll caches.
 
     $ jekyll clean
 
-# Modifications
+# Modifications and Customisation
 
 ### CI/CD
-CircleCI is used to integrate and operate tests.
+[TravisCI](https://travis-ci.com/github/leesheppard/leesheppard.github.io) is used to integrate and operate tests before deploying a build to Github.
+
+### Security monitoring
+[Snyk](https://snyk.io) is used to monitor dependencies for security patches.
+
+## Modified structure
 
 ### File Structure
 This folder structure has been modified from the original Jekyll install. I prefer to keep the main directory structure 
@@ -56,11 +70,14 @@ destination: public
 source: src
 ```
 
-Modified deploy structure
+### Deploy structure
+Github Pages is not using current versions of Jekyll and its plugins. To bypass this I have used TravisCI to build out 
+and deploy the static files to the `Master` branch where Github Pages is viewed from. To do this, I have modified the 
+default branch for the repo to be `Release`.
 
-Changes to the branch structure to allow the build to occur via Travis:
+Changes to the branch structure to allow the build to occur via TravisCI:
 
-```
+```bash
 master <- generated static site content
 release <- Jekyll code to be generated into site
 develop <- Branch that contains changes until merged into release

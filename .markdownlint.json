@@ -1,0 +1,20 @@
+{
+  "line-length": {
+    "code_blocks": false
+  },
+  "no-hard-tabs": {
+    "code_blocks": false
+  },
+  "no-inline-html": {
+    "allowed_elements": [
+      "br",
+      "figcaption",
+      "figure",
+      "p",
+      "span"
+    ]
+  },
+  "no-trailing-punctuation": {
+    "punctuation": ".,;:!"
+  }
+}
