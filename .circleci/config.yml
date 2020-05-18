@@ -4,6 +4,9 @@ version: 2
 jobs:
   build:
     <<: *defaults
+    branches:
+      ignore:
+        - master
     docker:
       - image: circleci/ruby:2.7.0
     environment:
