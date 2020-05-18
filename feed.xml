@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lee Sheppard</title>
+    <description>I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.</description>
+    <link>http://leesheppard.github.io/</link>
+    <atom:link href="http://leesheppard.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 18 May 2020 13:03:07 +1000</pubDate>
+    <lastBuildDate>Mon, 18 May 2020 13:03:07 +1000</lastBuildDate>
+    <generator>Jekyll v4.0.1</generator>
+    
+      <item>
+        <title>Create a bootable USB for MacOS Mojave</title>
+        <description>&lt;p&gt;Download the MacOS Mojave in the App Store or from the developer website from Apple. If the installer opens when download is complete, Quit and don’t install as yet.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Prepare the drive&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Mount the USB volume that you want to install on. That drive can be called anything you like but so that you can just copy and paste these Terminal instructions, rename it &lt;code class=&quot;highlighter-rouge&quot;&gt;macinstall&lt;/code&gt;. You can rename it again later.&lt;/p&gt;
+
+&lt;p&gt;Open &lt;a href=&quot;https://en.wikipedia.org/wiki/Terminal_(macOS)&quot;&gt;Terminal&lt;/a&gt; and type (or cut and paste) the following command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/macinstall
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hit return and you’ll be asked for your admin password. Terminal starts running a program called &lt;code class=&quot;highlighter-rouge&quot;&gt;createinstallmedia&lt;/code&gt;. It’s an Apple program they’ve created for us, they just haven’t mentioned it much.&lt;/p&gt;
+
+&lt;p&gt;You will be reminded that this means erasing the drive and if you enter &lt;code class=&quot;highlighter-rouge&quot;&gt;Y&lt;/code&gt; it will start the process. It will erase and then begin to create the installer on the USB.&lt;/p&gt;
+
+&lt;p&gt;Once the process is complete, you will have a bootable USB to install Mojave on other devices.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 27 Sep 2018 12:48:54 +1000</pubDate>
+        <link>http://leesheppard.github.io/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</guid>
+        
+        
+        <category>tips</category>
+        
+      </item>
+    
+      <item>
+        <title>Change the default location for Screenshots in MacOS</title>
+        <description>&lt;p&gt;Open &lt;a href=&quot;https://en.wikipedia.org/wiki/Terminal_(macOS)&quot;&gt;Terminal&lt;/a&gt; and type the following command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ defaults write com.apple.screencapture location ~/Documents/Screenshots
+$ killall SystemUIServer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can customise the directory that you want to save screenshots to. It doesn’t
+have to be &lt;code class=&quot;highlighter-rouge&quot;&gt;~/Documents/Screenshots&lt;/code&gt; if you would prefer another location you
+adjust the code above to your preferred folder.&lt;/p&gt;
+
+&lt;p&gt;To revert back to saving screenshots to your desktop, type the
+following into the terminal window:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ defaults write com.apple.screencapture location ~/Desktop
+$ killall SystemUIServer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Sat, 01 Oct 2016 12:48:54 +1000</pubDate>
+        <link>http://leesheppard.github.io/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</guid>
+        
+        
+        <category>tips</category>
+        
+      </item>
+    
+      <item>
+        <title>Creating an Amazon S3 service to host images using a custom domain</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://assets.sheppard.io/characters/leesheppard_thumb_pirate.png&quot; alt=&quot;Pirate&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I haven’t found up to date instructions online that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from &lt;a href=&quot;https://aws.amazon.com&quot;&gt;Amazon Web Services&lt;/a&gt;. Here is how I set mine up.&lt;/p&gt;
+
+&lt;p&gt;This tutorial assumes that you have already set up an account with AWS.&lt;/p&gt;
+
+&lt;p&gt;Let’s assume also that you have a domain name already in use. And from that domain we will create a subdomain to use for supplying images to a site using this new address. For this tutorial I will use the fake names of &lt;code class=&quot;highlighter-rouge&quot;&gt;www.customdomain.com&lt;/code&gt; and the subdomain of &lt;code class=&quot;highlighter-rouge&quot;&gt;images.customdomain.com&lt;/code&gt; which will host our images.&lt;/p&gt;
+
+&lt;p&gt;We haven’t as yet created a subdomain but with the name in mind we MUST ensure that this name is used when creating a bucket in the S3 service. As we mentioned, we will use &lt;code class=&quot;highlighter-rouge&quot;&gt;images.customdomain.com&lt;/code&gt; as our intended subdomain name.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-a-bucket-in-amazon-s3&quot;&gt;Creating a bucket in Amazon S3&lt;/h2&gt;
+&lt;p&gt;A bucket in the S3 service is just a fancy title for a folder on their server.&lt;/p&gt;
+
+&lt;h3 id=&quot;step-1---create-a-new-bucket&quot;&gt;Step 1 - Create a new bucket&lt;/h3&gt;
+&lt;p&gt;After logging in to &lt;em&gt;Amazon Web Services&lt;/em&gt;, select S3 from the Services drop down menu at the top left of the screen. On the following screen select the blue &lt;strong&gt;Create Bucket&lt;/strong&gt; button left of screen. The &lt;strong&gt;Bucket Name&lt;/strong&gt; should be the exact name of the subdomain you will be creating. Select a &lt;strong&gt;Region&lt;/strong&gt; based on appropriate pricing and location to the majority of your audience. Finally click &lt;strong&gt;Create&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;You will now be shown a screen listing all your buckets on the left and your newly created bucket should be selected. The bucket information will be on the right of the window.&lt;/p&gt;
+
+&lt;h3 id=&quot;step-2---enable-web-hosting&quot;&gt;Step 2 - Enable web hosting&lt;/h3&gt;
+&lt;p&gt;To the right of the window displaying the bucket information, select &lt;strong&gt;Static Web Hosting&lt;/strong&gt;. Check the radio button for &lt;strong&gt;Enable web hosting&lt;/strong&gt;. This will create a publicly available location for us to use to retrieve content from. It does mean that you are providing access no differently than any other website. So for that reason you must provide an &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; page and an &lt;code class=&quot;highlighter-rouge&quot;&gt;error.html&lt;/code&gt; page. This will prevent people from being able to browse/list the files in your bucket. These two pages you will need to create yourself. For now though you should type in to the fields the names that you wish to call these files when you have them ready and uploaded to the bucket. Click &lt;strong&gt;Save&lt;/strong&gt; when you’re done.&lt;/p&gt;
+
+&lt;p&gt;Whilst under this section &lt;em&gt;Static Web Hosting&lt;/em&gt; please take note of the second paragraph heading &lt;strong&gt;Endpoint&lt;/strong&gt; which has a URL containing the location of the bucket online. Keep this handy as you will need it in the next procedure for creating the custom domain name.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: the bucket domain name or endpoint will differ for the reason it will indicate the region you chose to host in. The structure will be &lt;code class=&quot;highlighter-rouge&quot;&gt;*bucketname.region.s3.amazonaws.com*&lt;/code&gt; or in our example &lt;code class=&quot;highlighter-rouge&quot;&gt;*images.customdomain.com.sydney.s3.amazonaws.com*&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;step-3---make-the-bucket-viewable-with-a-policy&quot;&gt;Step 3 - Make the bucket viewable with a policy&lt;/h3&gt;
+&lt;p&gt;The next step is to tell Amazon that this new bucket should be available to the public. We do this by creating a bucket policy. In your current window on the right, click on the &lt;strong&gt;Permissions&lt;/strong&gt; heading and click the &lt;strong&gt;Add bucket policy&lt;/strong&gt; link. To add a bucket policy that makes your bucket content publicly available [follow this guide] (http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html#step2-add-bucket-policy-make-content-public).&lt;/p&gt;
+
+&lt;h3 id=&quot;final-step-whilst-logged-in-to--amazon-s3-next-is-pointing-a-new-custom-domain&quot;&gt;Final step whilst logged in to  Amazon S3 (next is &lt;em&gt;Pointing a new custom domain&lt;/em&gt;)&lt;/h3&gt;
+
+&lt;p&gt;Upload your images through the browser or using your preferred FTP program. Don’t forget to add the &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;error.html&lt;/code&gt; files you need to create for the bucket as mentioned in Step 2.&lt;/p&gt;
+
+&lt;p&gt;If you don’t want Google (or Google Images) to index the files in your subdomain, create a file named &lt;code class=&quot;highlighter-rouge&quot;&gt;robots.txt&lt;/code&gt; containing the following and upload to your bucket:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;User-agent: *
+Disallow: /
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Next procedure…&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;pointing-a-new-custom-domain&quot;&gt;Pointing a new custom domain&lt;/h2&gt;
+
+&lt;p&gt;Most domain resellers give you very little freedom when creating domains and subdomains. Some web hosting services allow you to create subdomains through cPanel for example which is great but is painful when you need to move your website elsewhere of hosting. You can still purchase a domain name through a reseller, but you should invest in a DNS Management service to give you the flexibility to freely amend all the records for your domain/s. Companies like &lt;a href=&quot;http://www.dnsmadeeasy.com&quot;&gt;DNS Made Easy&lt;/a&gt; or &lt;a href=&quot;http://www.noip.com/managed-dns&quot;&gt;NO-IP&lt;/a&gt; are reasonably priced and have friendly user interfaces to work with. Some domain resellers charge higher fees for domain names, this usually means they provide you with a higher level of options including the ability to manage DNS entries more easily.&lt;/p&gt;
+
+&lt;h3 id=&quot;modifying-your-dns-server-settings&quot;&gt;Modifying your DNS server settings&lt;/h3&gt;
+
+&lt;p&gt;The procedures on how to do this will vary. In general the steps are:&lt;/p&gt;
+
+&lt;h4 id=&quot;step-1&quot;&gt;Step 1&lt;/h4&gt;
+&lt;p&gt;Logon to your web host control panel and select “Manage DNS Server Settings” or similar.&lt;/p&gt;
+
+&lt;h4 id=&quot;step-2&quot;&gt;Step 2&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Endpoint&lt;/code&gt; URL mentioned above in Step 2 will be used here in the Value field. Keep it ready.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Create a new CNAME entry for your domain. This example will be  &lt;code class=&quot;highlighter-rouge&quot;&gt;images.customdomain&lt;/code&gt; and the fields to complete were:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Name&lt;/strong&gt;: &lt;em&gt;images&lt;/em&gt;&lt;br /&gt;
+&lt;strong&gt;Type&lt;/strong&gt;: &lt;em&gt;CNAME&lt;/em&gt;&lt;br /&gt;
+&lt;strong&gt;Value&lt;/strong&gt;: &lt;em&gt;images.customdomain.s3.amazonaws.com.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The dot at the end of &lt;code class=&quot;highlighter-rouge&quot;&gt;images.customdomain.S3.amazonaws.com.&lt;/code&gt; as our above example shows is important. Without the full stop at the end of the Value entry it will create an incorrect entry and the subdomain will not work.&lt;/p&gt;
+
+&lt;h1 id=&quot;finish&quot;&gt;Finish&lt;/h1&gt;
+&lt;p&gt;Well that is it, you should now be able to load up your new custom domain in a browser and use the location to host images for your site. If you have any suggestions or comments to improve this tutorial let me know.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 04 Feb 2016 13:48:54 +1100</pubDate>
+        <link>http://leesheppard.github.io/tutorial/2016/02/04/creating-an-amazonS3-service-with-custom-domain.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/tutorial/2016/02/04/creating-an-amazonS3-service-with-custom-domain.html</guid>
+        
+        
+        <category>tutorial</category>
+        
+      </item>
+    
+      <item>
+        <title>What have you been up to?</title>
+        <description>&lt;p&gt;Amongst many ongoing projects that keep me occupied, I set up a separate website that only holds sketch/work in progress done using an iPad and a Wacom Creative Stylus Pro 2 - &lt;a href=&quot;https://lookatmydoodle.com&quot;&gt;Look at my Doodle&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=0BwCfeUfJs_03bmxBNUtiZGY3U0E&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 02 Feb 2016 13:48:54 +1100</pubDate>
+        <link>http://leesheppard.github.io/ideas/2016/02/02/what-have-you-been-up-to.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/ideas/2016/02/02/what-have-you-been-up-to.html</guid>
+        
+        
+        <category>ideas</category>
+        
+      </item>
+    
+  </channel>
+</rss>
