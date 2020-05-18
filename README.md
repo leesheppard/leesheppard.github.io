@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/leesheppard/leesheppard.github.io/tree/master.svg?style=svg)](https://circleci.com/gh/leesheppard/leesheppard.github.io/tree/master)
 <a href="https://codeclimate.com/github/leesheppard/leesheppard.github.io"><img src="https://codeclimate.com/github/leesheppard/leesheppard.github.io/badges/gpa.svg" /></a>
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/leesheppard/leesheppard.github.io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/leesheppard/leesheppard.github.io/alerts/)
-[![Build Status](https://travis-ci.com/leesheppard/leesheppard.github.io.svg?branch=master)](https://travis-ci.com/leesheppard/leesheppard.github.io)
+[![Build Status](https://travis-ci.com/leesheppard/leesheppard.github.io.svg?branch=release)](https://travis-ci.com/leesheppard/leesheppard.github.io)
 
 # lee.sheppard.io
 This is the repository for my personal blog and to serve as an example of development literacy.
@@ -56,6 +56,15 @@ destination: public
 source: src
 ```
 
+Modified deploy structure
+
+Changes to the branch structure to allow the build to occur via Travis:
+
+```
+master <- generated static site content
+release <- Jekyll code to be generated into site
+develop <- Branch that contains changes until merged into release
+```
 
 # Copyright
 Images, specifically illustrations, used in this application are subject to copyright by Lee Sheppard.
