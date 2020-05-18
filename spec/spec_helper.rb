@@ -50,12 +50,6 @@ RSpec.configure do |config|
     Capybara::Selenium::Driver.new(app, :browser => :chrome)
   end
 
-  # Configure Capybara to load the website through rack-jekyll.
-  # (force_build: true) builds the site before the tests are run,
-  # so our tests are always running against the latest version
-  # of our jekyll site.
-  Capybara.app = Rack::Jekyll.new(force_build: true)
-
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
   # have no way to turn it off -- the option exists only for backwards
   # compatibility in RSpec 3). It causes shared context metadata to be
@@ -116,4 +110,10 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+  # Configure Capybara to load the website through rack-jekyll.
+  # (force_build: true) builds the site before the tests are run,
+  # so our tests are always running against the latest version
+  # of our jekyll site.
+  Capybara.server = Rack::Jekyll.new(force_build: true)
 end
