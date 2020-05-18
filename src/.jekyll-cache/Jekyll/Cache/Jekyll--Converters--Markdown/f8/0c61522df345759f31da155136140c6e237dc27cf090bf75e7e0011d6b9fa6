@@ -1,0 +1,66 @@
+I"U<p><img src="http://assets.sheppard.io/characters/leesheppard_thumb_pirate.png" alt="Pirate" /></p>
+
+<p>I haven’t found up to date instructions online that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from <a href="https://aws.amazon.com">Amazon Web Services</a>. Here is how I set mine up.</p>
+
+<p>This tutorial assumes that you have already set up an account with AWS.</p>
+
+<p>Let’s assume also that you have a domain name already in use. And from that domain we will create a subdomain to use for supplying images to a site using this new address. For this tutorial I will use the fake names of <code class="highlighter-rouge">www.customdomain.com</code> and the subdomain of <code class="highlighter-rouge">images.customdomain.com</code> which will host our images.</p>
+
+<p>We haven’t as yet created a subdomain but with the name in mind we MUST ensure that this name is used when creating a bucket in the S3 service. As we mentioned, we will use <code class="highlighter-rouge">images.customdomain.com</code> as our intended subdomain name.</p>
+
+<h2 id="creating-a-bucket-in-amazon-s3">Creating a bucket in Amazon S3</h2>
+<p>A bucket in the S3 service is just a fancy title for a folder on their server.</p>
+
+<h3 id="step-1---create-a-new-bucket">Step 1 - Create a new bucket</h3>
+<p>After logging in to <em>Amazon Web Services</em>, select S3 from the Services drop down menu at the top left of the screen. On the following screen select the blue <strong>Create Bucket</strong> button left of screen. The <strong>Bucket Name</strong> should be the exact name of the subdomain you will be creating. Select a <strong>Region</strong> based on appropriate pricing and location to the majority of your audience. Finally click <strong>Create</strong>.</p>
+
+<p>You will now be shown a screen listing all your buckets on the left and your newly created bucket should be selected. The bucket information will be on the right of the window.</p>
+
+<h3 id="step-2---enable-web-hosting">Step 2 - Enable web hosting</h3>
+<p>To the right of the window displaying the bucket information, select <strong>Static Web Hosting</strong>. Check the radio button for <strong>Enable web hosting</strong>. This will create a publicly available location for us to use to retrieve content from. It does mean that you are providing access no differently than any other website. So for that reason you must provide an <code class="highlighter-rouge">index.html</code> page and an <code class="highlighter-rouge">error.html</code> page. This will prevent people from being able to browse/list the files in your bucket. These two pages you will need to create yourself. For now though you should type in to the fields the names that you wish to call these files when you have them ready and uploaded to the bucket. Click <strong>Save</strong> when you’re done.</p>
+
+<p>Whilst under this section <em>Static Web Hosting</em> please take note of the second paragraph heading <strong>Endpoint</strong> which has a URL containing the location of the bucket online. Keep this handy as you will need it in the next procedure for creating the custom domain name.</p>
+
+<p><strong>Note</strong>: the bucket domain name or endpoint will differ for the reason it will indicate the region you chose to host in. The structure will be <code class="highlighter-rouge">*bucketname.region.s3.amazonaws.com*</code> or in our example <code class="highlighter-rouge">*images.customdomain.com.sydney.s3.amazonaws.com*</code></p>
+
+<h3 id="step-3---make-the-bucket-viewable-with-a-policy">Step 3 - Make the bucket viewable with a policy</h3>
+<p>The next step is to tell Amazon that this new bucket should be available to the public. We do this by creating a bucket policy. In your current window on the right, click on the <strong>Permissions</strong> heading and click the <strong>Add bucket policy</strong> link. To add a bucket policy that makes your bucket content publicly available [follow this guide] (http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html#step2-add-bucket-policy-make-content-public).</p>
+
+<h3 id="final-step-whilst-logged-in-to--amazon-s3-next-is-pointing-a-new-custom-domain">Final step whilst logged in to  Amazon S3 (next is <em>Pointing a new custom domain</em>)</h3>
+
+<p>Upload your images through the browser or using your preferred FTP program. Don’t forget to add the <code class="highlighter-rouge">index.html</code> and <code class="highlighter-rouge">error.html</code> files you need to create for the bucket as mentioned in Step 2.</p>
+
+<p>If you don’t want Google (or Google Images) to index the files in your subdomain, create a file named <code class="highlighter-rouge">robots.txt</code> containing the following and upload to your bucket:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+Disallow: /
+</code></pre></div></div>
+
+<p><strong><em>Next procedure…</em></strong></p>
+
+<h2 id="pointing-a-new-custom-domain">Pointing a new custom domain</h2>
+
+<p>Most domain resellers give you very little freedom when creating domains and subdomains. Some web hosting services allow you to create subdomains through cPanel for example which is great but is painful when you need to move your website elsewhere of hosting. You can still purchase a domain name through a reseller, but you should invest in a DNS Management service to give you the flexibility to freely amend all the records for your domain/s. Companies like <a href="http://www.dnsmadeeasy.com">DNS Made Easy</a> or <a href="http://www.noip.com/managed-dns">NO-IP</a> are reasonably priced and have friendly user interfaces to work with. Some domain resellers charge higher fees for domain names, this usually means they provide you with a higher level of options including the ability to manage DNS entries more easily.</p>
+
+<h3 id="modifying-your-dns-server-settings">Modifying your DNS server settings</h3>
+
+<p>The procedures on how to do this will vary. In general the steps are:</p>
+
+<h4 id="step-1">Step 1</h4>
+<p>Logon to your web host control panel and select “Manage DNS Server Settings” or similar.</p>
+
+<h4 id="step-2">Step 2</h4>
+
+<p><em>The <code class="highlighter-rouge">Endpoint</code> URL mentioned above in Step 2 will be used here in the Value field. Keep it ready.</em></p>
+
+<p>Create a new CNAME entry for your domain. This example will be  <code class="highlighter-rouge">images.customdomain</code> and the fields to complete were:</p>
+
+<p><strong>Name</strong>: <em>images</em><br />
+<strong>Type</strong>: <em>CNAME</em><br />
+<strong>Value</strong>: <em>images.customdomain.s3.amazonaws.com.</em></p>
+
+<p>The dot at the end of <code class="highlighter-rouge">images.customdomain.S3.amazonaws.com.</code> as our above example shows is important. Without the full stop at the end of the Value entry it will create an incorrect entry and the subdomain will not work.</p>
+
+<h1 id="finish">Finish</h1>
+<p>Well that is it, you should now be able to load up your new custom domain in a browser and use the location to host images for your site. If you have any suggestions or comments to improve this tutorial let me know.</p>
+:ET
