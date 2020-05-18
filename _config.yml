@@ -16,7 +16,7 @@ baseurl: "" # this must be an empty string
 url: http://leesheppard.github.io
 author:
   name: "Lee Sheppard"
-  bio: "I''m a Sydney based writer, cartoonist and code monkey. Member of SCBWI Australia/NZ."
+  bio: "I'm a Sydney based writer, cartoonist and code monkey. Member of SCBWI Australia/NZ."
   twitter: "leesheppard"
   github: "leesheppard"
   dribbble: "leesheppard"
