@@ -9,8 +9,8 @@ layout: post
 Open [Terminal](https://en.wikipedia.org/wiki/Terminal_(macOS)) and type the following command:
 
 ```
-$ defaults write com.apple.screencapture location ~/Documents/Screenshots
-$ killall SystemUIServer
+defaults write com.apple.screencapture location ~/Documents/Screenshots
+killall SystemUIServer
 ```
 
 You can customise the directory that you want to save screenshots to. It doesn’t
@@ -21,6 +21,6 @@ To revert back to saving screenshots to your desktop, type the
 following into the terminal window:
 
 ```
-$ defaults write com.apple.screencapture location ~/Desktop
-$ killall SystemUIServer
+defaults write com.apple.screencapture location ~/Desktop
+killall SystemUIServer
 ```

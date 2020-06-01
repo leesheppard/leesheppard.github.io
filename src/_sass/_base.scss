@@ -8,17 +8,17 @@ dl, dd, ol, ul, figure {
     padding: 0;
 }
 
-
 /**
  * Basic styling
  */
 
 html {
-    background: url("http://assets.sheppard.io/jpg/lee_220x460.jpg") no-repeat left bottom;
+
     min-height: 100%;
 }
 
 body {
+    background: url("http://assets.sheppard.io/jpg/lee_220x460.jpg") no-repeat left bottom;
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
     background-color: $background-color;

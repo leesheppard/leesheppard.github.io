@@ -14,15 +14,15 @@
 
       <div class="footer-col footer-col-2">
         <ul class="social-media-list">
-          {% if site.github %}
+          {% if site.github_username %}
           <li>
-            {% include icon-github.html username=site.github %}
+            {% include icon-github.html username=site.github_username %}
           </li>
           {% endif %}
 
-          {% if site.twitter %}
+          {% if site.twitter_username %}
           <li>
-            {% include icon-twitter.html username=site.twitter %}
+            {% include icon-twitter.html username=site.twitter_username %}
           </li>
           {% endif %}
         </ul>
@@ -30,6 +30,66 @@
 
       <div class="footer-col footer-col-3">
         <p><i class="fad fa-id-card"></i> {{ site.description }}</p>
+      </div>
+    </div>
+
+    <div class="skillsets">
+      <div class="skillsets-devops">
+        <h3>Devops Knowledge</h3>
+        <i class="fab fa-aws"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-docker"></i>
+        <i class="fab fa-atlassian"></i>
+        <i class="fab fa-github"></i>
+        <i class="fab fa-gitlab"></i>
+      </div>
+      <div class="skillsets-frontend">
+        <h3>Frontend Knowledge</h3>
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-sass"></i>
+        <i class="fab fa-js"></i>
+        <i class="fab fa-markdown"></i>
+        <i class="fab fa-git-alt"></i>
+        <i class="fab fa-react"></i>
+      </div>
+      <div class="skillsets-packages">
+        <h3>Packaging Knowledge</h3>
+        <i class="fab fa-npm"></i>
+        <i class="fab fa-yarn"></i>
+        <i class="fab fa-gulp"></i>
+      </div>
+      <div class="skillsets-design">
+        <h3>UI Design Knowledge</h3>
+        <i class="fab fa-sketch"></i>
+        <i class="fab fa-invision"></i>
+        <i class="fab fa-mailchimp"></i>
+      </div>
+      <div class="skillsets-social">
+        <h3>Follow me</h3>
+        <dl>
+          <dd>
+            <a href="https://dribbble.com/leesheppard"><i class="fab fa-dribbble"></i> Dribbble</a>
+          </dd>
+          <dd>
+            <a href="https://instgram.com/leesheppard"><i class="fab fa-instagram"></i> Instagram</a>
+          </dd>
+          <dd>
+            <a href="https://www.linkedin.com/in/leesheppard"><i class="fab fa-linkedin-in"></i> Linkedin</a>
+          </dd>
+          <dd class="rss-subscribe">
+            <i class="fal fa-rss-square"></i> subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
+          </dd>
+        </dl>
+      </div>
+      <div class="skillsets-examples">
+        <h3>Example apps</h3>
+      <dl>
+        <dd><a href="https://swishui.leesheppard.now.sh">StorybookJS</a></dd>
+        <dd><a href="https://hugo.sheppard.io">Golang</a></dd>
+        <dd><a href="https://lee.sheppard.io">Jekyll</a></dd>
+        <dd><a href="http://railsgirls.sheppard.io/ideas">RailsGirls Sydney</a></dd>
+      </dl>
       </div>
     </div>
 
@@ -43,38 +103,6 @@
           </dd>
           {% endif %}
           {% endfor %}
-          <dd class="rss-subscribe">
-            <i class="fal fa-rss-square"></i> subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
-          </dd>
-        </dl>
-
-        <dl>
-          <dd>
-            <a href="https://lookatmydoodle.com"><i class="fal fa-browser"></i> Look at my Doodle</a>
-          </dd>
-          <dd>
-            <a href="https://toonstudio.com.au"><i class="fal fa-browser"></i> Toon Studio</a>
-          </dd>
-          <dd>
-            <a href="https://leesheppard.com"><i class="fal fa-browser"></i> Lee Sheppard</a>
-          </dd>
-        </dl>
-        <dl>
-          <dd>
-            <a href="https://dribbble.com/leesheppard"><i class="fab fa-dribbble"></i> Dribbble</a>
-          </dd>
-          <dd>
-            <a href="https://instgram.com/leesheppard"><i class="fab fa-instagram"></i> Instagram</a>
-          </dd>
-          <dd>
-            <a href="https://www.linkedin.com/in/leesheppard"><i class="fab fa-linkedin-in"></i> Linkedin</a>
-          </dd>
-        </dl>
-        <dl>
-          <dd><a href="https://swishui.leesheppard.now.sh">StorybookJS</a></dd>
-          <dd><a href="https://hugo.sheppard.io">Golang</a></dd>
-          <dd><a href="https://lee.sheppard.io">Jekyll</a></dd>
-          <dd><a href="http://railsgirls.sheppard.io/ideas">RailsGirls Sydney</a></dd>
         </dl>
       </div>
     </nav>
