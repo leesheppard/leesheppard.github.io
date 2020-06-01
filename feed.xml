@@ -5,9 +5,47 @@
     <description>I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.</description>
     <link>http://leesheppard.github.io/</link>
     <atom:link href="http://leesheppard.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 May 2020 14:53:21 +1000</pubDate>
-    <lastBuildDate>Mon, 18 May 2020 14:53:21 +1000</lastBuildDate>
+    <pubDate>Mon, 01 Jun 2020 21:43:44 +1000</pubDate>
+    <lastBuildDate>Mon, 01 Jun 2020 21:43:44 +1000</lastBuildDate>
     <generator>Jekyll v4.0.1</generator>
+    
+      <item>
+        <title>Saving USB drives that Mac won't recognise</title>
+        <description>&lt;p&gt;Ever plugged in an external hard drive or USB only to have it blink and not show up in your network?&lt;/p&gt;
+
+&lt;p&gt;I had a system crash unexpectedly on my desktop Mac and when it rebooted, I had trouble with the system starting up. There was an external hard drive still plugged in and the hardware was attempting to use it to boot a system to load with.&lt;/p&gt;
+
+&lt;p&gt;Unplugging the hard drive allowed the system from the internal drive to boot successfully. But the external hard drive disappeared when plugged back in.&lt;/p&gt;
+
+&lt;p&gt;What is happening? well Mac wants to fix the boot files on the external hard drives to prevent any issues with loss of data. It runs &lt;code class=&quot;highlighter-rouge&quot;&gt;fsck&lt;/code&gt; which stands for “File System Consistency Check,” is a command-line tool that reviews and repairs the underlying structure of a hard drive.&lt;/p&gt;
+
+&lt;p&gt;If you open &lt;code class=&quot;highlighter-rouge&quot;&gt;Activity Monitor&lt;/code&gt; on the Mac with the hard drive plugged in, you’ll see this running. Force quit it.&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;Disk Utility&lt;/code&gt; and you’ll see the disk in the left pane window, if it isn’t mounted you can click to mount in the far right top of the window.&lt;/p&gt;
+
+&lt;p&gt;Select the hard drive and Repair Permissions. It may take a while but will resolve the issues with viewing the hard drive contents.&lt;/p&gt;
+
+&lt;p&gt;Alternatively you can try in &lt;code class=&quot;highlighter-rouge&quot;&gt;Terminal&lt;/code&gt; to use the following commands:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ diskutil list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Find your HDD identifier.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ diskutil unmountDisk /dev/disk*
+$ diskutil eject /dev/disk*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Replace * with your version&lt;/p&gt;
+</description>
+        <pubDate>Sat, 30 May 2020 12:48:54 +1000</pubDate>
+        <link>http://leesheppard.github.io/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</guid>
+        
+        
+        <category>tips</category>
+        
+      </item>
     
       <item>
         <title>Create a bootable USB for MacOS Mojave</title>

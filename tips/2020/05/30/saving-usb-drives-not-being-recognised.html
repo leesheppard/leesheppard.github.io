@@ -14,8 +14,8 @@
   <meta name="apple-mobile-web-app-title" content="Lee Sheppard">
   <link rel="apple-touch-icon" href="http://assets.sheppard.io/png/sheppard-io-fav-167x167@2x.png">
 
-  <title>Lee Sheppard</title>
-  <meta name="description" content="I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.">
+  <title>Saving USB drives that Mac won&#39;t recognise</title>
+  <meta name="description" content="Ever plugged in an external hard drive or USB only to have it blink and not show up in your network?">
   <link href="http://assets.sheppard.io/png/sheppard-io-fav-60x60@2x.png" rel="apple-touch-icon" />
   <link href="http://assets.sheppard.io/png/sheppard-io-fav-76x76@2x.png" rel="apple-touch-icon" sizes="76x76" />
   <link href="http://assets.sheppard.io/png/sheppard-io-fav-128x128.png" rel="apple-touch-icon" sizes="120x120" />
@@ -25,7 +25,7 @@
   <link href="http://assets.sheppard.io/png/sheppard-io-fav-128x128.png" rel="icon" sizes="128x128" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://leesheppard.github.io/">
+  <link rel="canonical" href="http://leesheppard.github.io/tips/2020/05/30/saving-usb-drives-not-being-recognised.html">
   <link rel="alternate" type="application/rss+xml" title="Lee Sheppard" href="http://leesheppard.github.io/feed.xml">
   <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab" rel="stylesheet">
 
@@ -89,53 +89,44 @@
     <div class="page-content">
       <div class="wrapper">
 
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">May 30, 2020</span>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Saving USB drives that Mac won't recognise</h1>
+    <p class="post-meta"><time datetime="2020-05-30T12:48:54+10:00" itemprop="datePublished">May 30, 2020</time></p>
+  </header>
 
-        <h2>
-          <a class="post-link" href="/tips/2020/05/30/saving-usb-drives-not-being-recognised.html">Saving USB drives that Mac won't recognise</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Sep 27, 2018</span>
+  <div class="post-content link-underline-sm" itemprop="articleBody">
+    <p>Ever plugged in an external hard drive or USB only to have it blink and not show up in your network?</p>
 
-        <h2>
-          <a class="post-link" href="/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html">Create a bootable USB for MacOS Mojave</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 1, 2016</span>
+<p>I had a system crash unexpectedly on my desktop Mac and when it rebooted, I had trouble with the system starting up. There was an external hard drive still plugged in and the hardware was attempting to use it to boot a system to load with.</p>
 
-        <h2>
-          <a class="post-link" href="/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html">Change the default location for Screenshots in MacOS</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 4, 2016</span>
+<p>Unplugging the hard drive allowed the system from the internal drive to boot successfully. But the external hard drive disappeared when plugged back in.</p>
 
-        <h2>
-          <a class="post-link" href="/tutorial/2016/02/04/creating-an-amazonS3-service-with-custom-domain.html">Creating an Amazon S3 service to host images using a custom domain</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Feb 2, 2016</span>
+<p>What is happening? well Mac wants to fix the boot files on the external hard drives to prevent any issues with loss of data. It runs <code class="highlighter-rouge">fsck</code> which stands for “File System Consistency Check,” is a command-line tool that reviews and repairs the underlying structure of a hard drive.</p>
 
-        <h2>
-          <a class="post-link" href="/ideas/2016/02/02/what-have-you-been-up-to.html">What have you been up to?</a>
-        </h2>
-      </li>
-    
-  </ul>
+<p>If you open <code class="highlighter-rouge">Activity Monitor</code> on the Mac with the hard drive plugged in, you’ll see this running. Force quit it.</p>
 
-</div>
+<p>Run <code class="highlighter-rouge">Disk Utility</code> and you’ll see the disk in the left pane window, if it isn’t mounted you can click to mount in the far right top of the window.</p>
+
+<p>Select the hard drive and Repair Permissions. It may take a while but will resolve the issues with viewing the hard drive contents.</p>
+
+<p>Alternatively you can try in <code class="highlighter-rouge">Terminal</code> to use the following commands:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ diskutil list
+</code></pre></div></div>
+
+<p>Find your HDD identifier.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ diskutil unmountDisk /dev/disk*
+$ diskutil eject /dev/disk*
+</code></pre></div></div>
+
+<p>Replace * with your version</p>
+
+  </div>
+
+</article>
 
 
       </div>
