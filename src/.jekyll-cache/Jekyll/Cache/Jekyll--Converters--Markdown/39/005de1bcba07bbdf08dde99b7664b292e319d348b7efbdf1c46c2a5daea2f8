@@ -1,4 +1,4 @@
-I"�<p>Download the MacOS Mojave in the App Store or from the developer website from Apple. If the installer opens when download is complete, Quit and don’t install as yet.</p>
+I"�<p>Download the MacOS Mojave in the App Store or from the developer website from Apple. If the installer opens when download is complete, Quit and don’t install as yet.</p>
 
 <p><strong>Prepare the drive</strong></p>
 
@@ -6,7 +6,7 @@
 
 <p>Open <a href="https://en.wikipedia.org/wiki/Terminal_(macOS)">Terminal</a> and type (or cut and paste) the following command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/macinstall
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/macinstall
 </code></pre></div></div>
 
 <p>Hit return and you’ll be asked for your admin password. Terminal starts running a program called <code class="highlighter-rouge">createinstallmedia</code>. It’s an Apple program they’ve created for us, they just haven’t mentioned it much.</p>

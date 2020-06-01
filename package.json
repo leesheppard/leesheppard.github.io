@@ -1,0 +1,18 @@
+{
+  "name": "leesheppard.github.io",
+  "version": "1.0.0",
+  "description": "Personal developer blog",
+  "main": "src/indexl.html",
+  "scripts": {
+    "test": "bundle exec jekyll serve --incremental --livereload"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://leesheppard@github.com/leesheppard/leesheppard.github.io.git"
+  },
+  "author": "Lee Sheppard",
+  "bugs": {
+    "url": "https://github.com/leesheppard/leesheppard.github.io/issues"
+  },
+  "homepage": "https://github.com/leesheppard/leesheppard.github.io#readme"
+}

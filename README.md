@@ -31,14 +31,21 @@ $ bundle install
 
 This app uses Guard to monitor file changes. Start Guard with the following command:
 
-    $ bundle exec guard
+```bash
+$ bundle exec guard
+```
 
 ### Run app
 Run Jekyll with:
 
 ```bash
-$ jekyll build -w
-$ jekyll serve
+$ bundle exec jekyll serve --incremental --livereload
+```
+
+or via NPM
+
+```bash
+$ npm test
 ```
 
 Visit [http://localhost:4000](http://localhost:4000)
