@@ -25,4 +25,7 @@ end
 group :jekyll_plugins do
   gem 'jekyll-feed', '>= 0.13'
   gem 'jekyll-sitemap', '~> 1.4'
+  gem 'jekyll-cloudinary'
+  gem 'jekyll-postcss'
+  gem 'jekyll-purgecss'
 end

@@ -1,7 +1,7 @@
----
----
+//---
+//---
 
-@charset "utf-8";
+//@charset "utf-8";
 
 // Our variables
 $base-font-family: 'Roboto', sans-serif;
@@ -39,7 +39,8 @@ $on-laptop:        800px;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-  "base",
-  "layout",
-  "syntax-highlighting"
+  "src/_sass/layout",
+  "src/_sass/base",
+  "src/_sass/settings",
+  "src/_sass/syntax-highlighting"
 ;
