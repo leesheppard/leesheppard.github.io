@@ -6,6 +6,10 @@ categories:
 layout: post
 ---
 
+<img src="https://res.cloudinary.com/leesheppard/image/upload/v1591440555/Stock%20photos/arseny-togulev-MECKPoKJYjM-unsplash.jpg" width="100%">
+
+_Photo by Arseny Togulev on Unsplash_
+
 Download the MacOS Mojave in the App Store or from the developer website from Apple. If the installer opens when download is complete, Quit and don't install as yet.
 
 **Prepare the drive**

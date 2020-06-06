@@ -5,6 +5,9 @@ categories:
 - tips
 layout: post
 ---
+<img src="https://res.cloudinary.com/leesheppard/image/upload/v1591440551/Stock%20photos/nathan-de-fortunato-hnH-Kj5YrUQ-unsplash.jpg" width="100%">
+
+_Photo by Nathan De Fortunato on Unsplash_
 
 Open [Terminal](https://en.wikipedia.org/wiki/Terminal_(macOS)) and type the following command:
 
