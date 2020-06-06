@@ -5,13 +5,17 @@
     <description>I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.</description>
     <link>http://leesheppard.github.io/</link>
     <atom:link href="http://leesheppard.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 Jun 2020 19:13:10 +1000</pubDate>
-    <lastBuildDate>Tue, 02 Jun 2020 19:13:10 +1000</lastBuildDate>
+    <pubDate>Sat, 06 Jun 2020 21:02:35 +1000</pubDate>
+    <lastBuildDate>Sat, 06 Jun 2020 21:02:35 +1000</lastBuildDate>
     <generator>Jekyll v4.1.0</generator>
     
       <item>
         <title>Saving USB drives that Mac won't recognise</title>
-        <description>&lt;p&gt;Ever plugged in an external hard drive or USB only to have it blink and not show up in your network?&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440601/Stock%20photos/yucel-moran-N_7LoiHWhZE-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Photo by Yucel Moran on Unsplash&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Ever plugged in an external hard drive or USB only to have it blink and not show up in your network?&lt;/p&gt;
 
 &lt;p&gt;I had a system crash unexpectedly on my desktop Mac and when it rebooted, I had trouble with the system starting up. There was an external hard drive still plugged in and the hardware was attempting to use it to boot a system to load with.&lt;/p&gt;
 
@@ -49,7 +53,11 @@ $ diskutil eject /dev/disk*
     
       <item>
         <title>Create a bootable USB for MacOS Mojave</title>
-        <description>&lt;p&gt;Download the MacOS Mojave in the App Store or from the developer website from Apple. If the installer opens when download is complete, Quit and don’t install as yet.&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440555/Stock%20photos/arseny-togulev-MECKPoKJYjM-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Photo by Arseny Togulev on Unsplash&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Download the MacOS Mojave in the App Store or from the developer website from Apple. If the installer opens when download is complete, Quit and don’t install as yet.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Prepare the drive&lt;/strong&gt;&lt;/p&gt;
 
@@ -77,7 +85,11 @@ $ diskutil eject /dev/disk*
     
       <item>
         <title>Change the default location for Screenshots in MacOS</title>
-        <description>&lt;p&gt;Open &lt;a href=&quot;https://en.wikipedia.org/wiki/Terminal_(macOS)&quot;&gt;Terminal&lt;/a&gt; and type the following command:&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440551/Stock%20photos/nathan-de-fortunato-hnH-Kj5YrUQ-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Photo by Nathan De Fortunato on Unsplash&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Open &lt;a href=&quot;https://en.wikipedia.org/wiki/Terminal_(macOS)&quot;&gt;Terminal&lt;/a&gt; and type the following command:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;defaults write com.apple.screencapture location ~/Documents/Screenshots
 killall SystemUIServer
