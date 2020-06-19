@@ -46,7 +46,11 @@ plugins:
   - jekyll-purgecss
   - jekyll-cloudinary
 
-exclude: ['.circleci', 'spec', '.travis.yml', '.idea', '.now']
+exclude:
+  - ['.circleci', 'spec', '.travis.yml', '.idea', '.now']
+  - "*.config.js"
+  - "package*.json"
+  - "node_modules"
 destination: public
 source: src
 css_dir: css
