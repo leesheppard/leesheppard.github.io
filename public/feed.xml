@@ -2,29 +2,207 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Lee Sheppard</title>
-    <description>I''m a Sydney based writer, cartoonist and code monkey. I''ve won various awards in many industries. Member of SCBWI Australia/NZ.</description>
+    <description>I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 May 2020 12:39:05 +1000</pubDate>
-    <lastBuildDate>Mon, 18 May 2020 12:39:05 +1000</lastBuildDate>
-    <generator>Jekyll v4.0.1</generator>
+    <pubDate>Mon, 18 Jan 2021 22:49:01 +1100</pubDate>
+    <lastBuildDate>Mon, 18 Jan 2021 22:49:01 +1100</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>Jekyll with Webpack</title>
+        <description>&lt;p&gt;Jekyll-assets has not been updated to work with Jekyll 4.0 for some time since its release. This made me want to explore some of the more recent modern packaging that is in use. And I wanted to allow some flexibility to work with Javascript.&lt;/p&gt;
+
+&lt;h3 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Jekyll&lt;/li&gt;
+  &lt;li&gt;Node&lt;/li&gt;
+  &lt;li&gt;Ruby&lt;/li&gt;
+  &lt;li&gt;NPM&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Install Webpack and some useful plugins:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install @babel/core @babel/preset-env babel-loader css-loader cssnano node-sass postcss-loader@~3.0.0 sass-loader style-loader terser-webpack-plugin webpack-cli webpack --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Couple of things to note in that list, PostCSS has an issue that required me to revert to the previous version to remove a &lt;a href=&quot;https://github.com/JeffreyWay/laravel-mix/issues/2471&quot;&gt;build error&lt;/a&gt;. Also &lt;a href=&quot;https://github.com/webpack-contrib/uglifyjs-webpack-plugin&quot;&gt;UglifyJS-webpack-plugin&lt;/a&gt; is now archived and no longer maintained so I replaced with &lt;a href=&quot;https://github.com/webpack-contrib/terser-webpack-plugin&quot;&gt;Terser&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Create the new folders and files required for Webpack&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir -p _webpack/{js,scss}
+$ touch _webpack/main.{js,scss}
+$ touch webpack.config.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Webpack configuration setup (webpack.config.js)&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const path = require('path');
+const TerserPlugin = require(&quot;terser-webpack-plugin&quot;);
+
+// https://webpack.js.org/configuration/
+module.exports = {
+  entry: {
+    main: path.join(__dirname, '_webpack', 'main'),
+  },
+  output: {
+    path: path.resolve(__dirname, 'assets'),
+    filename: '[name]-bundle.js',
+  },
+  resolve: {
+    extensions: ['.json', '.js', '.jsx'],
+    modules: ['node_modules'],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
+  module: {
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1, // https://webpack.js.org/loaders/postcss-loader/
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () =&amp;gt; [
+                require('cssnano')(), // https://cssnano.co/
+              ],
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {},
+          },
+        ],
+      },
+    ],
+  },
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;New files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_webpack&lt;/code&gt; folder:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;js&lt;/code&gt; JS modules to be imported in the main.js file.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.js&lt;/code&gt; main JS file, the webpack entrypoint.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.scss&lt;/code&gt; main SCSS file. be sure to import this file in main.js file.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scss&lt;/code&gt; SCSS partials to be imported in the main.scss file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;_webpackmainjs&quot;&gt;_webpack/main.js&lt;/h3&gt;
+
+&lt;p&gt;The Webpack entrypoint.
+Import all necessary JS modules in this file.
+Initialize JS code here as needed.
+&lt;strong&gt;Note: The ./main.scss file needs to be imported here.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import Turbolinks from 'turbolinks';
+import './main.scss';
+
+Turbolinks.start();
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;_webpackmainscss&quot;&gt;_webpack/main.scss&lt;/h3&gt;
+
+&lt;p&gt;This is the top-level SCSS file.
+It is imported in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./main.js&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;Here is an example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@import 'sass/base';
+@import 'sass/layout';
+@import 'sass/settings';
+@import 'sass/syntax-highlighting';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The end.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 27 Dec 2020 11:48:54 +1100</pubDate>
+        <link>http://localhost:4000/tips/2020/12/27/jekyll-with-webpack.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tips/2020/12/27/jekyll-with-webpack.html</guid>
+        
+        
+        <category>tips</category>
+        
+      </item>
+    
+      <item>
+        <title>Saving USB drives that Mac won't recognise</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440601/Stock%20photos/yucel-moran-N_7LoiHWhZE-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Photo by Yucel Moran on Unsplash&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Ever plugged in an external hard drive or USB only to have it blink and not show up in your network?&lt;/p&gt;
+
+&lt;p&gt;I had a system crash unexpectedly on my desktop Mac and when it rebooted, I had trouble with the system starting up. There was an external hard drive still plugged in and the hardware was attempting to use it to boot a system to load with.&lt;/p&gt;
+
+&lt;p&gt;Unplugging the hard drive allowed the system from the internal drive to boot successfully. But the external hard drive disappeared when plugged back in.&lt;/p&gt;
+
+&lt;p&gt;What is happening? well Mac wants to fix the boot files on the external hard drives to prevent any issues with loss of data. It runs &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fsck&lt;/code&gt; which stands for “File System Consistency Check,” is a command-line tool that reviews and repairs the underlying structure of a hard drive.&lt;/p&gt;
+
+&lt;p&gt;If you open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Activity Monitor&lt;/code&gt; on the Mac with the hard drive plugged in, you’ll see this running. Force quit it.&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Disk Utility&lt;/code&gt; and you’ll see the disk in the left pane window, if it isn’t mounted you can click to mount in the far right top of the window.&lt;/p&gt;
+
+&lt;p&gt;Select the hard drive and Repair Permissions. It may take a while but will resolve the issues with viewing the hard drive contents.&lt;/p&gt;
+
+&lt;p&gt;Alternatively you can try in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Terminal&lt;/code&gt; to use the following commands:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ diskutil list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Find your HDD identifier.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ diskutil unmountDisk /dev/disk*
+$ diskutil eject /dev/disk*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Replace * with your version&lt;/p&gt;
+</description>
+        <pubDate>Sat, 30 May 2020 12:48:54 +1000</pubDate>
+        <link>http://localhost:4000/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</guid>
+        
+        
+        <category>tips</category>
+        
+      </item>
     
       <item>
         <title>Create a bootable USB for MacOS Mojave</title>
-        <description>&lt;p&gt;Download the MacOS Mojave in the App Store or from the developer website from Apple. If the installer opens when download is complete, Quit and don’t install as yet.&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440555/Stock%20photos/arseny-togulev-MECKPoKJYjM-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Photo by Arseny Togulev on Unsplash&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Download the MacOS Mojave in the App Store or from the developer website from Apple. If the installer opens when download is complete, Quit and don’t install as yet.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Prepare the drive&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Mount the USB volume that you want to install on. That drive can be called anything you like but so that you can just copy and paste these Terminal instructions, rename it &lt;code class=&quot;highlighter-rouge&quot;&gt;macinstall&lt;/code&gt;. You can rename it again later.&lt;/p&gt;
+&lt;p&gt;Mount the USB volume that you want to install on. That drive can be called anything you like but so that you can just copy and paste these Terminal instructions, rename it &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;macinstall&lt;/code&gt;. You can rename it again later.&lt;/p&gt;
 
 &lt;p&gt;Open &lt;a href=&quot;https://en.wikipedia.org/wiki/Terminal_(macOS)&quot;&gt;Terminal&lt;/a&gt; and type (or cut and paste) the following command:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/macinstall
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/macinstall
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Hit return and you’ll be asked for your admin password. Terminal starts running a program called &lt;code class=&quot;highlighter-rouge&quot;&gt;createinstallmedia&lt;/code&gt;. It’s an Apple program they’ve created for us, they just haven’t mentioned it much.&lt;/p&gt;
+&lt;p&gt;Hit return and you’ll be asked for your admin password. Terminal starts running a program called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;createinstallmedia&lt;/code&gt;. It’s an Apple program they’ve created for us, they just haven’t mentioned it much.&lt;/p&gt;
 
-&lt;p&gt;You will be reminded that this means erasing the drive and if you enter &lt;code class=&quot;highlighter-rouge&quot;&gt;Y&lt;/code&gt; it will start the process. It will erase and then begin to create the installer on the USB.&lt;/p&gt;
+&lt;p&gt;You will be reminded that this means erasing the drive and if you enter &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Y&lt;/code&gt; it will start the process. It will erase and then begin to create the installer on the USB.&lt;/p&gt;
 
 &lt;p&gt;Once the process is complete, you will have a bootable USB to install Mojave on other devices.&lt;/p&gt;
 </description>
@@ -39,21 +217,25 @@
     
       <item>
         <title>Change the default location for Screenshots in MacOS</title>
-        <description>&lt;p&gt;Open &lt;a href=&quot;https://en.wikipedia.org/wiki/Terminal_(macOS)&quot;&gt;Terminal&lt;/a&gt; and type the following command:&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440551/Stock%20photos/nathan-de-fortunato-hnH-Kj5YrUQ-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ defaults write com.apple.screencapture location ~/Documents/Screenshots
-$ killall SystemUIServer
+&lt;p&gt;&lt;em&gt;Photo by Nathan De Fortunato on Unsplash&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Open &lt;a href=&quot;https://en.wikipedia.org/wiki/Terminal_(macOS)&quot;&gt;Terminal&lt;/a&gt; and type the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;defaults write com.apple.screencapture location ~/Documents/Screenshots
+killall SystemUIServer
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;You can customise the directory that you want to save screenshots to. It doesn’t
-have to be &lt;code class=&quot;highlighter-rouge&quot;&gt;~/Documents/Screenshots&lt;/code&gt; if you would prefer another location you
+have to be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/Documents/Screenshots&lt;/code&gt; if you would prefer another location you
 adjust the code above to your preferred folder.&lt;/p&gt;
 
 &lt;p&gt;To revert back to saving screenshots to your desktop, type the
 following into the terminal window:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ defaults write com.apple.screencapture location ~/Desktop
-$ killall SystemUIServer
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;defaults write com.apple.screencapture location ~/Desktop
+killall SystemUIServer
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Sat, 01 Oct 2016 12:48:54 +1000</pubDate>
@@ -66,42 +248,44 @@ $ killall SystemUIServer
       </item>
     
       <item>
-        <title>Creating an Amazon S3 service to host images using a custom domain</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://assets.sheppard.io/characters/leesheppard_thumb_pirate.png&quot; alt=&quot;Pirate&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I haven’t found up to date instructions online that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from &lt;a href=&quot;https://aws.amazon.com&quot;&gt;Amazon Web Services&lt;/a&gt;. Here is how I set mine up.&lt;/p&gt;
+        <title>Create an S3 bucket to host images with a custom domain</title>
+        <description>&lt;p&gt;I haven’t found up to date instructions online that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from &lt;a href=&quot;https://aws.amazon.com&quot;&gt;Amazon Web Services&lt;/a&gt;. Here is how I set mine up.&lt;/p&gt;
 
 &lt;p&gt;This tutorial assumes that you have already set up an account with AWS.&lt;/p&gt;
 
-&lt;p&gt;Let’s assume also that you have a domain name already in use. And from that domain we will create a subdomain to use for supplying images to a site using this new address. For this tutorial I will use the fake names of &lt;code class=&quot;highlighter-rouge&quot;&gt;www.customdomain.com&lt;/code&gt; and the subdomain of &lt;code class=&quot;highlighter-rouge&quot;&gt;images.customdomain.com&lt;/code&gt; which will host our images.&lt;/p&gt;
+&lt;p&gt;Let’s assume also that you have a domain name already in use. And from that domain we will create a subdomain to use for supplying images to a site using this new address. For this tutorial I will use the fake names of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www.customdomain.com&lt;/code&gt; and the subdomain of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;images.customdomain.com&lt;/code&gt; which will host our images.&lt;/p&gt;
 
-&lt;p&gt;We haven’t as yet created a subdomain but with the name in mind we MUST ensure that this name is used when creating a bucket in the S3 service. As we mentioned, we will use &lt;code class=&quot;highlighter-rouge&quot;&gt;images.customdomain.com&lt;/code&gt; as our intended subdomain name.&lt;/p&gt;
+&lt;p&gt;We haven’t as yet created a subdomain but with the name in mind we MUST ensure that this name is used when creating a bucket in the S3 service. As we mentioned, we will use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;images.customdomain.com&lt;/code&gt; as our intended subdomain name.&lt;/p&gt;
 
 &lt;h2 id=&quot;creating-a-bucket-in-amazon-s3&quot;&gt;Creating a bucket in Amazon S3&lt;/h2&gt;
+
 &lt;p&gt;A bucket in the S3 service is just a fancy title for a folder on their server.&lt;/p&gt;
 
 &lt;h3 id=&quot;step-1---create-a-new-bucket&quot;&gt;Step 1 - Create a new bucket&lt;/h3&gt;
+
 &lt;p&gt;After logging in to &lt;em&gt;Amazon Web Services&lt;/em&gt;, select S3 from the Services drop down menu at the top left of the screen. On the following screen select the blue &lt;strong&gt;Create Bucket&lt;/strong&gt; button left of screen. The &lt;strong&gt;Bucket Name&lt;/strong&gt; should be the exact name of the subdomain you will be creating. Select a &lt;strong&gt;Region&lt;/strong&gt; based on appropriate pricing and location to the majority of your audience. Finally click &lt;strong&gt;Create&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;You will now be shown a screen listing all your buckets on the left and your newly created bucket should be selected. The bucket information will be on the right of the window.&lt;/p&gt;
 
 &lt;h3 id=&quot;step-2---enable-web-hosting&quot;&gt;Step 2 - Enable web hosting&lt;/h3&gt;
-&lt;p&gt;To the right of the window displaying the bucket information, select &lt;strong&gt;Static Web Hosting&lt;/strong&gt;. Check the radio button for &lt;strong&gt;Enable web hosting&lt;/strong&gt;. This will create a publicly available location for us to use to retrieve content from. It does mean that you are providing access no differently than any other website. So for that reason you must provide an &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; page and an &lt;code class=&quot;highlighter-rouge&quot;&gt;error.html&lt;/code&gt; page. This will prevent people from being able to browse/list the files in your bucket. These two pages you will need to create yourself. For now though you should type in to the fields the names that you wish to call these files when you have them ready and uploaded to the bucket. Click &lt;strong&gt;Save&lt;/strong&gt; when you’re done.&lt;/p&gt;
+
+&lt;p&gt;To the right of the window displaying the bucket information, select &lt;strong&gt;Static Web Hosting&lt;/strong&gt;. Check the radio button for &lt;strong&gt;Enable web hosting&lt;/strong&gt;. This will create a publicly available location for us to use to retrieve content from. It does mean that you are providing access no differently than any other website. So for that reason you must provide an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.html&lt;/code&gt; page and an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;error.html&lt;/code&gt; page. This will prevent people from being able to browse/list the files in your bucket. These two pages you will need to create yourself. For now though you should type in to the fields the names that you wish to call these files when you have them ready and uploaded to the bucket. Click &lt;strong&gt;Save&lt;/strong&gt; when you’re done.&lt;/p&gt;
 
 &lt;p&gt;Whilst under this section &lt;em&gt;Static Web Hosting&lt;/em&gt; please take note of the second paragraph heading &lt;strong&gt;Endpoint&lt;/strong&gt; which has a URL containing the location of the bucket online. Keep this handy as you will need it in the next procedure for creating the custom domain name.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: the bucket domain name or endpoint will differ for the reason it will indicate the region you chose to host in. The structure will be &lt;code class=&quot;highlighter-rouge&quot;&gt;*bucketname.region.s3.amazonaws.com*&lt;/code&gt; or in our example &lt;code class=&quot;highlighter-rouge&quot;&gt;*images.customdomain.com.sydney.s3.amazonaws.com*&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: the bucket domain name or endpoint will differ for the reason it will indicate the region you chose to host in. The structure will be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*bucketname.region.s3.amazonaws.com*&lt;/code&gt; or in our example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*images.customdomain.com.sydney.s3.amazonaws.com*&lt;/code&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;step-3---make-the-bucket-viewable-with-a-policy&quot;&gt;Step 3 - Make the bucket viewable with a policy&lt;/h3&gt;
-&lt;p&gt;The next step is to tell Amazon that this new bucket should be available to the public. We do this by creating a bucket policy. In your current window on the right, click on the &lt;strong&gt;Permissions&lt;/strong&gt; heading and click the &lt;strong&gt;Add bucket policy&lt;/strong&gt; link. To add a bucket policy that makes your bucket content publicly available [follow this guide] (http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html#step2-add-bucket-policy-make-content-public).&lt;/p&gt;
+
+&lt;p&gt;The next step is to tell Amazon that this new bucket should be available to the public. We do this by creating a bucket policy. In your current window on the right, click on the &lt;strong&gt;Permissions&lt;/strong&gt; heading and click the &lt;strong&gt;Add bucket policy&lt;/strong&gt; link. To add a bucket policy that makes your bucket content publicly available [follow this guide] (&lt;a href=&quot;http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html#step2-add-bucket-policy-make-content-public).&quot;&gt;http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html#step2-add-bucket-policy-make-content-public).&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;final-step-whilst-logged-in-to--amazon-s3-next-is-pointing-a-new-custom-domain&quot;&gt;Final step whilst logged in to  Amazon S3 (next is &lt;em&gt;Pointing a new custom domain&lt;/em&gt;)&lt;/h3&gt;
 
-&lt;p&gt;Upload your images through the browser or using your preferred FTP program. Don’t forget to add the &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;error.html&lt;/code&gt; files you need to create for the bucket as mentioned in Step 2.&lt;/p&gt;
+&lt;p&gt;Upload your images through the browser or using your preferred FTP program. Don’t forget to add the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;index.html&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;error.html&lt;/code&gt; files you need to create for the bucket as mentioned in Step 2.&lt;/p&gt;
 
-&lt;p&gt;If you don’t want Google (or Google Images) to index the files in your subdomain, create a file named &lt;code class=&quot;highlighter-rouge&quot;&gt;robots.txt&lt;/code&gt; containing the following and upload to your bucket:&lt;/p&gt;
+&lt;p&gt;If you don’t want Google (or Google Images) to index the files in your subdomain, create a file named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;robots.txt&lt;/code&gt; containing the following and upload to your bucket:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;User-agent: *
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;User-agent: *
 Disallow: /
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -116,26 +300,28 @@ Disallow: /
 &lt;p&gt;The procedures on how to do this will vary. In general the steps are:&lt;/p&gt;
 
 &lt;h4 id=&quot;step-1&quot;&gt;Step 1&lt;/h4&gt;
+
 &lt;p&gt;Logon to your web host control panel and select “Manage DNS Server Settings” or similar.&lt;/p&gt;
 
 &lt;h4 id=&quot;step-2&quot;&gt;Step 2&lt;/h4&gt;
 
-&lt;p&gt;&lt;em&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Endpoint&lt;/code&gt; URL mentioned above in Step 2 will be used here in the Value field. Keep it ready.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Endpoint&lt;/code&gt; URL mentioned above in Step 2 will be used here in the Value field. Keep it ready.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Create a new CNAME entry for your domain. This example will be  &lt;code class=&quot;highlighter-rouge&quot;&gt;images.customdomain&lt;/code&gt; and the fields to complete were:&lt;/p&gt;
+&lt;p&gt;Create a new CNAME entry for your domain. This example will be  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;images.customdomain&lt;/code&gt; and the fields to complete were:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Name&lt;/strong&gt;: &lt;em&gt;images&lt;/em&gt;&lt;br /&gt;
 &lt;strong&gt;Type&lt;/strong&gt;: &lt;em&gt;CNAME&lt;/em&gt;&lt;br /&gt;
 &lt;strong&gt;Value&lt;/strong&gt;: &lt;em&gt;images.customdomain.s3.amazonaws.com.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;The dot at the end of &lt;code class=&quot;highlighter-rouge&quot;&gt;images.customdomain.S3.amazonaws.com.&lt;/code&gt; as our above example shows is important. Without the full stop at the end of the Value entry it will create an incorrect entry and the subdomain will not work.&lt;/p&gt;
+&lt;p&gt;The dot at the end of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;images.customdomain.S3.amazonaws.com.&lt;/code&gt; as our above example shows is important. Without the full stop at the end of the Value entry it will create an incorrect entry and the subdomain will not work.&lt;/p&gt;
 
 &lt;h1 id=&quot;finish&quot;&gt;Finish&lt;/h1&gt;
+
 &lt;p&gt;Well that is it, you should now be able to load up your new custom domain in a browser and use the location to host images for your site. If you have any suggestions or comments to improve this tutorial let me know.&lt;/p&gt;
 </description>
         <pubDate>Thu, 04 Feb 2016 13:48:54 +1100</pubDate>
-        <link>http://localhost:4000/tutorial/2016/02/04/creating-an-amazonS3-service-with-custom-domain.html</link>
-        <guid isPermaLink="true">http://localhost:4000/tutorial/2016/02/04/creating-an-amazonS3-service-with-custom-domain.html</guid>
+        <link>http://localhost:4000/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</guid>
         
         
         <category>tutorial</category>

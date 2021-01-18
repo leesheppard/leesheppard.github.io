@@ -1,12 +1,10 @@
-I"�<p><img src="http://assets.sheppard.io/characters/leesheppard_thumb_pirate.png" alt="Pirate" /></p>
-
-<p>I haven’t found up to date instructions online that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from <a href="https://aws.amazon.com">Amazon Web Services</a>. Here is how I set mine up.</p>
+I"�<p>I haven’t found up to date instructions online that explained in a simple manner how to go about setting up a custom domain for content delivery using an S3 service from <a href="https://aws.amazon.com">Amazon Web Services</a>. Here is how I set mine up.</p>
 
 <p>This tutorial assumes that you have already set up an account with AWS.</p>
 
-<p>Let’s assume also that you have a domain name already in use. And from that domain we will create a subdomain to use for supplying images to a site using this new address. For this tutorial I will use the fake names of <code class="highlighter-rouge">www.customdomain.com</code> and the subdomain of <code class="highlighter-rouge">images.customdomain.com</code> which will host our images.</p>
+<p>Let’s assume also that you have a domain name already in use. And from that domain we will create a subdomain to use for supplying images to a site using this new address. For this tutorial I will use the fake names of <code class="language-plaintext highlighter-rouge">www.customdomain.com</code> and the subdomain of <code class="language-plaintext highlighter-rouge">images.customdomain.com</code> which will host our images.</p>
 
-<p>We haven’t as yet created a subdomain but with the name in mind we MUST ensure that this name is used when creating a bucket in the S3 service. As we mentioned, we will use <code class="highlighter-rouge">images.customdomain.com</code> as our intended subdomain name.</p>
+<p>We haven’t as yet created a subdomain but with the name in mind we MUST ensure that this name is used when creating a bucket in the S3 service. As we mentioned, we will use <code class="language-plaintext highlighter-rouge">images.customdomain.com</code> as our intended subdomain name.</p>
 
 <h2 id="creating-a-bucket-in-amazon-s3">Creating a bucket in Amazon S3</h2>
 
@@ -20,11 +18,11 @@
 
 <h3 id="step-2---enable-web-hosting">Step 2 - Enable web hosting</h3>
 
-<p>To the right of the window displaying the bucket information, select <strong>Static Web Hosting</strong>. Check the radio button for <strong>Enable web hosting</strong>. This will create a publicly available location for us to use to retrieve content from. It does mean that you are providing access no differently than any other website. So for that reason you must provide an <code class="highlighter-rouge">index.html</code> page and an <code class="highlighter-rouge">error.html</code> page. This will prevent people from being able to browse/list the files in your bucket. These two pages you will need to create yourself. For now though you should type in to the fields the names that you wish to call these files when you have them ready and uploaded to the bucket. Click <strong>Save</strong> when you’re done.</p>
+<p>To the right of the window displaying the bucket information, select <strong>Static Web Hosting</strong>. Check the radio button for <strong>Enable web hosting</strong>. This will create a publicly available location for us to use to retrieve content from. It does mean that you are providing access no differently than any other website. So for that reason you must provide an <code class="language-plaintext highlighter-rouge">index.html</code> page and an <code class="language-plaintext highlighter-rouge">error.html</code> page. This will prevent people from being able to browse/list the files in your bucket. These two pages you will need to create yourself. For now though you should type in to the fields the names that you wish to call these files when you have them ready and uploaded to the bucket. Click <strong>Save</strong> when you’re done.</p>
 
 <p>Whilst under this section <em>Static Web Hosting</em> please take note of the second paragraph heading <strong>Endpoint</strong> which has a URL containing the location of the bucket online. Keep this handy as you will need it in the next procedure for creating the custom domain name.</p>
 
-<p><strong>Note</strong>: the bucket domain name or endpoint will differ for the reason it will indicate the region you chose to host in. The structure will be <code class="highlighter-rouge">*bucketname.region.s3.amazonaws.com*</code> or in our example <code class="highlighter-rouge">*images.customdomain.com.sydney.s3.amazonaws.com*</code></p>
+<p><strong>Note</strong>: the bucket domain name or endpoint will differ for the reason it will indicate the region you chose to host in. The structure will be <code class="language-plaintext highlighter-rouge">*bucketname.region.s3.amazonaws.com*</code> or in our example <code class="language-plaintext highlighter-rouge">*images.customdomain.com.sydney.s3.amazonaws.com*</code></p>
 
 <h3 id="step-3---make-the-bucket-viewable-with-a-policy">Step 3 - Make the bucket viewable with a policy</h3>
 
@@ -32,11 +30,11 @@
 
 <h3 id="final-step-whilst-logged-in-to--amazon-s3-next-is-pointing-a-new-custom-domain">Final step whilst logged in to  Amazon S3 (next is <em>Pointing a new custom domain</em>)</h3>
 
-<p>Upload your images through the browser or using your preferred FTP program. Don’t forget to add the <code class="highlighter-rouge">index.html</code> and <code class="highlighter-rouge">error.html</code> files you need to create for the bucket as mentioned in Step 2.</p>
+<p>Upload your images through the browser or using your preferred FTP program. Don’t forget to add the <code class="language-plaintext highlighter-rouge">index.html</code> and <code class="language-plaintext highlighter-rouge">error.html</code> files you need to create for the bucket as mentioned in Step 2.</p>
 
-<p>If you don’t want Google (or Google Images) to index the files in your subdomain, create a file named <code class="highlighter-rouge">robots.txt</code> containing the following and upload to your bucket:</p>
+<p>If you don’t want Google (or Google Images) to index the files in your subdomain, create a file named <code class="language-plaintext highlighter-rouge">robots.txt</code> containing the following and upload to your bucket:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>User-agent: *
 Disallow: /
 </code></pre></div></div>
 
@@ -56,15 +54,15 @@ Disallow: /
 
 <h4 id="step-2">Step 2</h4>
 
-<p><em>The <code class="highlighter-rouge">Endpoint</code> URL mentioned above in Step 2 will be used here in the Value field. Keep it ready.</em></p>
+<p><em>The <code class="language-plaintext highlighter-rouge">Endpoint</code> URL mentioned above in Step 2 will be used here in the Value field. Keep it ready.</em></p>
 
-<p>Create a new CNAME entry for your domain. This example will be  <code class="highlighter-rouge">images.customdomain</code> and the fields to complete were:</p>
+<p>Create a new CNAME entry for your domain. This example will be  <code class="language-plaintext highlighter-rouge">images.customdomain</code> and the fields to complete were:</p>
 
 <p><strong>Name</strong>: <em>images</em><br />
 <strong>Type</strong>: <em>CNAME</em><br />
 <strong>Value</strong>: <em>images.customdomain.s3.amazonaws.com.</em></p>
 
-<p>The dot at the end of <code class="highlighter-rouge">images.customdomain.S3.amazonaws.com.</code> as our above example shows is important. Without the full stop at the end of the Value entry it will create an incorrect entry and the subdomain will not work.</p>
+<p>The dot at the end of <code class="language-plaintext highlighter-rouge">images.customdomain.S3.amazonaws.com.</code> as our above example shows is important. Without the full stop at the end of the Value entry it will create an incorrect entry and the subdomain will not work.</p>
 
 <h1 id="finish">Finish</h1>
 

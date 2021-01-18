@@ -2,9 +2,9 @@
 body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure { margin: 0; padding: 0; }
 
 /** Basic styling */
-html { background: url("http://assets.sheppard.io/jpg/lee_220x460.jpg") no-repeat left bottom; min-height: 100%; }
+html { min-height: 100%; }
 
-body { font: 400 16px/1.5 "Roboto", sans-serif; color: #111; background-color: clear; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; margin: 0; }
+body { background: url("https://res.cloudinary.com/leesheppard/image/upload/v1610969401/photos/lee_220x460.jpg") no-repeat left bottom; font: 400 16px/1.5 "Roboto", sans-serif; color: #111; background-color: clear; -webkit-text-size-adjust: 100%; -webkit-font-feature-settings: "kern" 1; -moz-font-feature-settings: "kern" 1; -o-font-feature-settings: "kern" 1; font-feature-settings: "kern" 1; font-kerning: normal; margin: 0; }
 
 /** Set `margin-bottom` to maintain vertical rhythm */
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, .highlight { margin-bottom: 15px; }
@@ -87,6 +87,12 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 
 .contact-list, .social-media-list { list-style: none; margin-left: 0; }
 
+.skillsets { display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr auto 1fr; column-gap: 10px; row-gap: 10px; }
+
+.skillsets i { font-size: 1.5rem; padding: 1rem; }
+
+.skillsets-design, .skillsets-devops, .skillsets-examples, .skillsets-frontend, .skillsets-packages, .skillsets-social { border: 1px solid #e8e8e8; border-radius: 5px; padding: 1rem; }
+
 .footer-col-wrapper { font-size: 15px; color: #828282; margin-left: -15px; }
 
 .footer-col { float: left; margin-bottom: 15px; padding-left: 15px; }
@@ -113,6 +119,8 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 .post-meta { font-size: 14px; color: #828282; }
 
 .post-link { display: block; font-size: 24px; }
+
+.post-link i { color: #828282; margin: 0 1.2rem 0 0; }
 
 /** Posts */
 .post-header { margin-bottom: 30px; }

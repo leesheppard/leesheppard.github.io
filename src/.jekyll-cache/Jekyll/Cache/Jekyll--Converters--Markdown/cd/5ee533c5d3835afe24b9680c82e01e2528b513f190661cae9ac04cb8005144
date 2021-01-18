@@ -1,0 +1,21 @@
+I"z<p><img src="https://res.cloudinary.com/leesheppard/image/upload/v1591440551/Stock%20photos/nathan-de-fortunato-hnH-Kj5YrUQ-unsplash.jpg" width="100%" /></p>
+
+<p><em>Photo by Nathan De Fortunato on Unsplash</em></p>
+
+<p>Open <a href="https://en.wikipedia.org/wiki/Terminal_(macOS)">Terminal</a> and type the following command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.screencapture location ~/Documents/Screenshots
+killall SystemUIServer
+</code></pre></div></div>
+
+<p>You can customise the directory that you want to save screenshots to. It doesn’t
+have to be <code class="language-plaintext highlighter-rouge">~/Documents/Screenshots</code> if you would prefer another location you
+adjust the code above to your preferred folder.</p>
+
+<p>To revert back to saving screenshots to your desktop, type the
+following into the terminal window:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>defaults write com.apple.screencapture location ~/Desktop
+killall SystemUIServer
+</code></pre></div></div>
+:ET

@@ -2,7 +2,7 @@
   "name": "leesheppard.github.io",
   "version": "1.0.0",
   "description": "Personal developer blog",
-  "main": "src/indexl.html",
+  "main": "src/index.html",
   "scripts": {
     "test": "bundle exec jekyll serve --incremental --livereload"
   },

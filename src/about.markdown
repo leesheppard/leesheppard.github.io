@@ -4,7 +4,7 @@ permalink: "/about/"
 layout: page
 ---
 
-![Pirate](http://assets.sheppard.io/jpg/pirate_blue_sketch.jpg)
+![Pirate](https://res.cloudinary.com/leesheppard/image/upload/v1610969556/artwork/pirate_blue_sketch.jpg)
 
 Lee Sheppard is an artist and writer based in Sydney. His study included two years of fine arts at Paddington Art School under tuition by Stephen Wesley Gorton, classical advanced animation studies at Enmore Design Centre and screenwriting for children’s animated television series at the Australian Film Television Radio School (AFTRS).
 
@@ -20,17 +20,17 @@ As a young boy, Lee learnt to program computers. As a freelance cartoonist he wa
 
 Lee can also be found on these way cool hip sites:
 
-[Member of SCBWI Australia/New Zealand](http://www.scbwi.org/members-public/lee-sheppard)
+[Member of SCBWI Australia/New Zealand](https://www.scbwi.org/members-public/lee-sheppard)
 
 [Dribbble](https://dribbble.com/leesheppard)
 
-[Art of Wa (video interview)](http://www.artofwa.com.au/?page_id=726)
+[Art of Wa (video interview)](https://www.artofwa.com.au/?page_id=726)
 
-[iMDB](http://www.imdb.com/name/nm2698435/)
+[iMDB](https://www.imdb.com/name/nm2698435/)
 
 [Wikipaedia](https://en.wikipedia.org/wiki/Lee_Sheppard_(cartoonist))
 
-[Github](http://www.github.com/leesheppard)
+[Github](https://www.github.com/leesheppard)
 
 This website is built using Ruby and Jekyll.
 

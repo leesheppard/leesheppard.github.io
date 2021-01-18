@@ -1,0 +1,121 @@
+I":<p>Jekyll-assets has not been updated to work with Jekyll 4.0 for some time since its release. This made me want to explore some of the more recent modern packaging that is in use. And I wanted to allow some flexibility to work with Javascript.</p>
+
+<h3 id="dependencies">Dependencies</h3>
+<ul>
+  <li>Jekyll</li>
+  <li>Node</li>
+  <li>Ruby</li>
+  <li>NPM</li>
+</ul>
+
+<p>Install Webpack and some useful plugins:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ npm install @babel/core @babel/preset-env babel-loader css-loader cssnano node-sass postcss-loader@~3.0.0 sass-loader style-loader terser-webpack-plugin webpack-cli webpack --save-dev
+</code></pre></div></div>
+
+<p>Couple of things to note in that list, PostCSS has an issue that required me to revert to the previous version to remove a <a href="https://github.com/JeffreyWay/laravel-mix/issues/2471">build error</a>. Also <a href="https://github.com/webpack-contrib/uglifyjs-webpack-plugin">UglifyJS-webpack-plugin</a> is now archived and no longer maintained so I replaced with <a href="https://github.com/webpack-contrib/terser-webpack-plugin">Terser</a>.</p>
+
+<p>Create the new folders and files required for Webpack</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir -p _webpack/{js,scss}
+$ touch _webpack/main.{js,scss}
+$ touch webpack.config.js
+</code></pre></div></div>
+
+<p>Webpack configuration setup (webpack.config.js)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
+
+// https://webpack.js.org/configuration/
+module.exports = {
+  entry: {
+    main: path.join(__dirname, '_webpack', 'main'),
+  },
+  output: {
+    path: path.resolve(__dirname, 'assets'),
+    filename: '[name]-bundle.js',
+  },
+  resolve: {
+    extensions: ['.json', '.js', '.jsx'],
+    modules: ['node_modules'],
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
+  module: {
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1, // https://webpack.js.org/loaders/postcss-loader/
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () =&gt; [
+                require('cssnano')(), // https://cssnano.co/
+              ],
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {},
+          },
+        ],
+      },
+    ],
+  },
+};
+</code></pre></div></div>
+
+<p>New files in the <code class="language-plaintext highlighter-rouge">_webpack</code> folder:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">js</code> JS modules to be imported in the main.js file.</li>
+  <li><code class="language-plaintext highlighter-rouge">main.js</code> main JS file, the webpack entrypoint.</li>
+  <li><code class="language-plaintext highlighter-rouge">main.scss</code> main SCSS file. be sure to import this file in main.js file.</li>
+  <li><code class="language-plaintext highlighter-rouge">scss</code> SCSS partials to be imported in the main.scss file.</li>
+</ul>
+
+<h3 id="_webpackmainjs">_webpack/main.js</h3>
+
+<p>The Webpack entrypoint.
+Import all necessary JS modules in this file.
+Initialize JS code here as needed.
+<strong>Note: The ./main.scss file needs to be imported here.</strong></p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import Turbolinks from 'turbolinks';
+import './main.scss';
+
+Turbolinks.start();
+</code></pre></div></div>
+
+<h3 id="_webpackmainscss">_webpack/main.scss</h3>
+
+<p>This is the top-level SCSS file.
+It is imported in the <code class="language-plaintext highlighter-rouge">./main.js</code> file.</p>
+
+<p>Here is an example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@import 'sass/base';
+@import 'sass/layout';
+@import 'sass/settings';
+@import 'sass/syntax-highlighting';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</code></pre></div></div>
+
+<p>The end.</p>
+:ET
