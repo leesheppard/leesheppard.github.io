@@ -4,7 +4,13 @@
   "description": "Personal developer blog",
   "main": "src/index.html",
   "scripts": {
-    "test": "bundle exec jekyll serve --incremental --livereload"
+    "test": "bundle exec jekyll serve --incremental --livereload",
+    "develop": "bundle exec jekyll clean && run-p develop:{webpack,jekyll}",
+    "develop:jekyll": "sleep 5 && bundle exec jekyll serve --watch",
+    "develop:webpack": "webpack --mode development --watch",
+    "build": "run-s build:webpack build:jekyll purgecss",
+    "build:jekyll": "JEKYLL_ENV=production bundle exec jekyll build",
+    "build:webpack": "webpack --mode production"
   },
   "repository": {
     "type": "git",

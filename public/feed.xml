@@ -3,143 +3,11 @@
   <channel>
     <title>Lee Sheppard</title>
     <description>I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 18 Jan 2021 22:49:01 +1100</pubDate>
-    <lastBuildDate>Mon, 18 Jan 2021 22:49:01 +1100</lastBuildDate>
-    <generator>Jekyll v4.1.1</generator>
-    
-      <item>
-        <title>Jekyll with Webpack</title>
-        <description>&lt;p&gt;Jekyll-assets has not been updated to work with Jekyll 4.0 for some time since its release. This made me want to explore some of the more recent modern packaging that is in use. And I wanted to allow some flexibility to work with Javascript.&lt;/p&gt;
-
-&lt;h3 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Jekyll&lt;/li&gt;
-  &lt;li&gt;Node&lt;/li&gt;
-  &lt;li&gt;Ruby&lt;/li&gt;
-  &lt;li&gt;NPM&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Install Webpack and some useful plugins:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ npm install @babel/core @babel/preset-env babel-loader css-loader cssnano node-sass postcss-loader@~3.0.0 sass-loader style-loader terser-webpack-plugin webpack-cli webpack --save-dev
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Couple of things to note in that list, PostCSS has an issue that required me to revert to the previous version to remove a &lt;a href=&quot;https://github.com/JeffreyWay/laravel-mix/issues/2471&quot;&gt;build error&lt;/a&gt;. Also &lt;a href=&quot;https://github.com/webpack-contrib/uglifyjs-webpack-plugin&quot;&gt;UglifyJS-webpack-plugin&lt;/a&gt; is now archived and no longer maintained so I replaced with &lt;a href=&quot;https://github.com/webpack-contrib/terser-webpack-plugin&quot;&gt;Terser&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Create the new folders and files required for Webpack&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ mkdir -p _webpack/{js,scss}
-$ touch _webpack/main.{js,scss}
-$ touch webpack.config.js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Webpack configuration setup (webpack.config.js)&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;const path = require('path');
-const TerserPlugin = require(&quot;terser-webpack-plugin&quot;);
-
-// https://webpack.js.org/configuration/
-module.exports = {
-  entry: {
-    main: path.join(__dirname, '_webpack', 'main'),
-  },
-  output: {
-    path: path.resolve(__dirname, 'assets'),
-    filename: '[name]-bundle.js',
-  },
-  resolve: {
-    extensions: ['.json', '.js', '.jsx'],
-    modules: ['node_modules'],
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
-  },
-  module: {
-    rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1, // https://webpack.js.org/loaders/postcss-loader/
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () =&amp;gt; [
-                require('cssnano')(), // https://cssnano.co/
-              ],
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {},
-          },
-        ],
-      },
-    ],
-  },
-};
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;New files in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_webpack&lt;/code&gt; folder:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;js&lt;/code&gt; JS modules to be imported in the main.js file.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.js&lt;/code&gt; main JS file, the webpack entrypoint.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.scss&lt;/code&gt; main SCSS file. be sure to import this file in main.js file.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;scss&lt;/code&gt; SCSS partials to be imported in the main.scss file.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;_webpackmainjs&quot;&gt;_webpack/main.js&lt;/h3&gt;
-
-&lt;p&gt;The Webpack entrypoint.
-Import all necessary JS modules in this file.
-Initialize JS code here as needed.
-&lt;strong&gt;Note: The ./main.scss file needs to be imported here.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Example:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import Turbolinks from 'turbolinks';
-import './main.scss';
-
-Turbolinks.start();
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;_webpackmainscss&quot;&gt;_webpack/main.scss&lt;/h3&gt;
-
-&lt;p&gt;This is the top-level SCSS file.
-It is imported in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./main.js&lt;/code&gt; file.&lt;/p&gt;
-
-&lt;p&gt;Here is an example:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@import 'sass/base';
-@import 'sass/layout';
-@import 'sass/settings';
-@import 'sass/syntax-highlighting';
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The end.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 27 Dec 2020 11:48:54 +1100</pubDate>
-        <link>http://localhost:4000/tips/2020/12/27/jekyll-with-webpack.html</link>
-        <guid isPermaLink="true">http://localhost:4000/tips/2020/12/27/jekyll-with-webpack.html</guid>
-        
-        
-        <category>tips</category>
-        
-      </item>
+    <link>http://leesheppard.github.io/</link>
+    <atom:link href="http://leesheppard.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 25 Jan 2021 23:20:43 +1100</pubDate>
+    <lastBuildDate>Mon, 25 Jan 2021 23:20:43 +1100</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
     
       <item>
         <title>Saving USB drives that Mac won't recognise</title>
@@ -175,8 +43,8 @@ $ diskutil eject /dev/disk*
 &lt;p&gt;Replace * with your version&lt;/p&gt;
 </description>
         <pubDate>Sat, 30 May 2020 12:48:54 +1000</pubDate>
-        <link>http://localhost:4000/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</link>
-        <guid isPermaLink="true">http://localhost:4000/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</guid>
+        <link>http://leesheppard.github.io/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</guid>
         
         
         <category>tips</category>
@@ -207,8 +75,8 @@ $ diskutil eject /dev/disk*
 &lt;p&gt;Once the process is complete, you will have a bootable USB to install Mojave on other devices.&lt;/p&gt;
 </description>
         <pubDate>Thu, 27 Sep 2018 12:48:54 +1000</pubDate>
-        <link>http://localhost:4000/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</link>
-        <guid isPermaLink="true">http://localhost:4000/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</guid>
+        <link>http://leesheppard.github.io/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</guid>
         
         
         <category>tips</category>
@@ -239,8 +107,8 @@ killall SystemUIServer
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Sat, 01 Oct 2016 12:48:54 +1000</pubDate>
-        <link>http://localhost:4000/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</link>
-        <guid isPermaLink="true">http://localhost:4000/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</guid>
+        <link>http://leesheppard.github.io/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</guid>
         
         
         <category>tips</category>
@@ -320,8 +188,8 @@ Disallow: /
 &lt;p&gt;Well that is it, you should now be able to load up your new custom domain in a browser and use the location to host images for your site. If you have any suggestions or comments to improve this tutorial let me know.&lt;/p&gt;
 </description>
         <pubDate>Thu, 04 Feb 2016 13:48:54 +1100</pubDate>
-        <link>http://localhost:4000/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</link>
-        <guid isPermaLink="true">http://localhost:4000/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</guid>
+        <link>http://leesheppard.github.io/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</guid>
         
         
         <category>tutorial</category>
@@ -335,8 +203,8 @@ Disallow: /
 &lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=0BwCfeUfJs_03bmxBNUtiZGY3U0E&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 02 Feb 2016 13:48:54 +1100</pubDate>
-        <link>http://localhost:4000/ideas/2016/02/02/what-have-you-been-up-to.html</link>
-        <guid isPermaLink="true">http://localhost:4000/ideas/2016/02/02/what-have-you-been-up-to.html</guid>
+        <link>http://leesheppard.github.io/ideas/2016/02/02/what-have-you-been-up-to.html</link>
+        <guid isPermaLink="true">http://leesheppard.github.io/ideas/2016/02/02/what-have-you-been-up-to.html</guid>
         
         
         <category>ideas</category>
