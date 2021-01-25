@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby '2.7.0'
 
 gem 'hash-joiner'
-gem 'jekyll', '~> 4.0'
+gem 'jekyll', '~> 4.2.0'
 gem 'json'
 
 group :development do
@@ -14,7 +14,7 @@ end
 
 group :development, :test do
   gem 'capybara', '>= 3.32.0'
-  gem 'html-proofer', '~> 3.15'
+  gem 'html-proofer', '~> 3.18'
   gem 'pry'
   gem 'rack-jekyll'
   gem 'rspec'
