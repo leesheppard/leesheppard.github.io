@@ -6,7 +6,7 @@ categories:
 layout: post
 ---
 
-<img src="https://res.cloudinary.com/leesheppard/image/upload/v1591440555/Stock%20photos/arseny-togulev-MECKPoKJYjM-unsplash.jpg" width="100%">
+<img src="https://res.cloudinary.com/leesheppard/image/upload/v1591440555/Stock%20photos/arseny-togulev-MECKPoKJYjM-unsplash.jpg" width="100%" alt="image">
 
 _Photo by Arseny Togulev on Unsplash_
 
