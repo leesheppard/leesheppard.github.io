@@ -24,8 +24,6 @@ Lee can also be found on these way cool hip sites:
 
 [Dribbble](https://dribbble.com/leesheppard)
 
-[Art of Wa (video interview)](https://www.artofwa.com.au/?page_id=726)
-
 [iMDB](https://www.imdb.com/name/nm2698435/)
 
 [Wikipaedia](https://en.wikipedia.org/wiki/Lee_Sheppard_(cartoonist))
