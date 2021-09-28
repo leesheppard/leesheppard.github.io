@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom">
   <channel>
     <title>Lee Sheppard</title>
     <description>I'm a Sydney based writer, cartoonist and code monkey. I've won various awards in many industries. Member of SCBWI Australia/NZ.</description>
-    <link>http://leesheppard.github.io/</link>
-    <atom:link href="http://leesheppard.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Sep 2021 20:40:01 +1000</pubDate>
-    <lastBuildDate>Tue, 28 Sep 2021 20:40:01 +1000</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 28 Sep 2021 21:07:41 +1000</pubDate>
+    <lastBuildDate>Tue, 28 Sep 2021 21:07:41 +1000</lastBuildDate>
     <generator>Jekyll v4.2.1</generator>
     
       <item>
         <title>Saving USB drives that Mac won't recognise</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440601/Stock%20photos/yucel-moran-N_7LoiHWhZE-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440601/Stock%20photos/yucel-moran-N_7LoiHWhZE-unsplash.jpg&quot; width=&quot;100%&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Photo by Yucel Moran on Unsplash&lt;/em&gt;&lt;/p&gt;
 
@@ -43,8 +43,8 @@ $ diskutil eject /dev/disk*
 &lt;p&gt;Replace * with your version&lt;/p&gt;
 </description>
         <pubDate>Sat, 30 May 2020 12:48:54 +1000</pubDate>
-        <link>http://leesheppard.github.io/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</link>
-        <guid isPermaLink="true">http://leesheppard.github.io/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</guid>
+        <link>http://localhost:4000/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tips/2020/05/30/saving-usb-drives-not-being-recognised.html</guid>
         
         
         <category>tips</category>
@@ -53,7 +53,7 @@ $ diskutil eject /dev/disk*
     
       <item>
         <title>Create a bootable USB for MacOS Mojave</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440555/Stock%20photos/arseny-togulev-MECKPoKJYjM-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440555/Stock%20photos/arseny-togulev-MECKPoKJYjM-unsplash.jpg&quot; width=&quot;100%&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Photo by Arseny Togulev on Unsplash&lt;/em&gt;&lt;/p&gt;
 
@@ -75,8 +75,8 @@ $ diskutil eject /dev/disk*
 &lt;p&gt;Once the process is complete, you will have a bootable USB to install Mojave on other devices.&lt;/p&gt;
 </description>
         <pubDate>Thu, 27 Sep 2018 12:48:54 +1000</pubDate>
-        <link>http://leesheppard.github.io/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</link>
-        <guid isPermaLink="true">http://leesheppard.github.io/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</guid>
+        <link>http://localhost:4000/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tips/2018/09/27/Create-a-bootable-USB-for-MacOS-Mojave.html</guid>
         
         
         <category>tips</category>
@@ -85,7 +85,7 @@ $ diskutil eject /dev/disk*
     
       <item>
         <title>Change the default location for Screenshots in MacOS</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440551/Stock%20photos/nathan-de-fortunato-hnH-Kj5YrUQ-unsplash.jpg&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/leesheppard/image/upload/v1591440551/Stock%20photos/nathan-de-fortunato-hnH-Kj5YrUQ-unsplash.jpg&quot; width=&quot;100%&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Photo by Nathan De Fortunato on Unsplash&lt;/em&gt;&lt;/p&gt;
 
@@ -107,8 +107,8 @@ killall SystemUIServer
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Sat, 01 Oct 2016 12:48:54 +1000</pubDate>
-        <link>http://leesheppard.github.io/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</link>
-        <guid isPermaLink="true">http://leesheppard.github.io/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</guid>
+        <link>http://localhost:4000/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tips/2016/10/01/Change-the-default-location-for-Screenshots-in-MacOS.html</guid>
         
         
         <category>tips</category>
@@ -188,8 +188,8 @@ Disallow: /
 &lt;p&gt;Well that is it, you should now be able to load up your new custom domain in a browser and use the location to host images for your site. If you have any suggestions or comments to improve this tutorial let me know.&lt;/p&gt;
 </description>
         <pubDate>Thu, 04 Feb 2016 13:48:54 +1100</pubDate>
-        <link>http://leesheppard.github.io/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</link>
-        <guid isPermaLink="true">http://leesheppard.github.io/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</guid>
+        <link>http://localhost:4000/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</link>
+        <guid isPermaLink="true">http://localhost:4000/tutorial/2016/02/04/create-an-S3-bucket-to-host-images-with-custom-domain.html</guid>
         
         
         <category>tutorial</category>
@@ -203,8 +203,8 @@ Disallow: /
 &lt;p&gt;&lt;img src=&quot;https://drive.google.com/uc?export=view&amp;amp;id=0BwCfeUfJs_03bmxBNUtiZGY3U0E&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 02 Feb 2016 13:48:54 +1100</pubDate>
-        <link>http://leesheppard.github.io/ideas/2016/02/02/what-have-you-been-up-to.html</link>
-        <guid isPermaLink="true">http://leesheppard.github.io/ideas/2016/02/02/what-have-you-been-up-to.html</guid>
+        <link>http://localhost:4000/ideas/2016/02/02/what-have-you-been-up-to.html</link>
+        <guid isPermaLink="true">http://localhost:4000/ideas/2016/02/02/what-have-you-been-up-to.html</guid>
         
         
         <category>ideas</category>
