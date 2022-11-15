@@ -169,8 +169,5 @@ DEPENDENCIES
   selenium-webdriver (>= 3.141.0)
   webdrivers
 
-RUBY VERSION
-   ruby 2.7.4p191
-
 BUNDLED WITH
    2.1.4
