@@ -4,7 +4,7 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/leesheppard/leesheppard.github.io.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/leesheppard/leesheppard.github.io/alerts/)
 [![Build Status](https://travis-ci.com/leesheppard/leesheppard.github.io.svg?branch=release)](https://travis-ci.com/leesheppard/leesheppard.github.io)
 
-# lee.sheppard.io
+# leesheppard.dev
 This is the repository for my personal blog and to serve as an example of development literacy.
 
 Thanks for checking out my work.
@@ -97,7 +97,5 @@ Images, specifically illustrations, used in this application are subject to copy
 # Social
 [![Hello](https://img.shields.io/badge/Hello-%40leesheppard-blue.svg)](https://twitter.com/leesheppard)
 
-- [Dribbble](https://dribbble.com/leesheppard)
-- [Instagram](https://instagram.com/leesheppard)
 - [Linkedin](https://www.linkedin.com/in/leesheppard)
-- [Twitter](https://twitter.com/leesheppard)
+- [X](https://twitter.com/leesheppard)
