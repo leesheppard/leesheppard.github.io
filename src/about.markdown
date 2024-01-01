@@ -20,13 +20,7 @@ As a young boy, Lee learnt to program computers. As a freelance cartoonist he wa
 
 Lee can also be found on these way cool hip sites:
 
-[Member of SCBWI Australia/New Zealand](https://www.scbwi.org/members-public/lee-sheppard)
-
 [Dribbble](https://dribbble.com/leesheppard)
-
-[iMDB](https://www.imdb.com/name/nm2698435/)
-
-[Wikipaedia](https://en.wikipedia.org/wiki/Lee_Sheppard_(cartoonist))
 
 [Github](https://www.github.com/leesheppard)
 
