@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org'
 
+gem 'webrick'
 gem 'hash-joiner'
 gem 'jekyll', '~> 4.2.0'
 gem 'json'
@@ -16,7 +17,7 @@ group :development, :test do
   gem 'html-proofer'
   gem 'rspec'
   gem 'selenium-webdriver', '>= 3.141.0'
-  gem 'webdrivers'
+  gem 'webdrivers', '~> 5.3.0'
 end
 
 group :jekyll_plugins do
