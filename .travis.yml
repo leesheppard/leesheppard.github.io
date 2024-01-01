@@ -1,0 +1,41 @@
+# References - https://docs.travis-ci.com/user/caching/#Bundler
+dist: trusty
+language: ruby
+cache: bundler
+rvm:
+ - 3.2.2
+bundler_args: --without development
+
+before_install:
+ - gem update --system
+ - gem install bundler
+
+env:
+ global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+
+addons:
+ apt:
+  packages:
+   - libcurl4-openssl-dev
+
+branches:
+ only:
+  - release
+
+jobs:
+ include:
+  - stage: Github Release
+    script:
+     - JEKYLL_ENV=production bundle exec jekyll build
+    deploy:
+     provider: pages
+     local-dir: ./public
+     target-branch: release
+     name: Travis Deployment Bot
+     # Token generated at https://github.com/settings/tokens and added
+     # to Travis environment variables.
+     github-token: $GITHUB_TOKEN
+     keep-history: true
+     on:
+      branch: release

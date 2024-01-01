@@ -1,0 +1,90 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">“We are the music makers, and we are the dreamers of dreams.” ― <a href="https://www.goodreads.com/author/quotes/4273.Roald_Dahl" >Roald Dahl</a></h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>{{ site.title }}</li>
+          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          {% if site.github_username %}
+          <li>
+            {% include icon-github.html username=site.github_username %}
+          </li>
+          {% endif %}
+
+          {% if site.twitter_username %}
+          <li>
+            {% include icon-twitter.html username=site.twitter_username %}
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p><i class="fad fa-id-card"></i> {{ site.description }}</p>
+      </div>
+    </div>
+
+    <div class="skillsets">
+      <div class="skillsets-devops">
+        <h3>Devops Knowledge</h3>
+        <i class="fab fa-aws"></i>
+        <i class="fab fa-google"></i>
+        <i class="fab fa-docker"></i>
+        <i class="fab fa-atlassian"></i>
+        <i class="fab fa-github"></i>
+        <i class="fab fa-gitlab"></i>
+      </div>
+      <div class="skillsets-frontend">
+        <h3>Frontend Knowledge</h3>
+        <i class="fab fa-html5"></i>
+        <i class="fab fa-css3-alt"></i>
+        <i class="fab fa-sass"></i>
+        <i class="fab fa-js"></i>
+        <i class="fab fa-markdown"></i>
+        <i class="fab fa-git-alt"></i>
+        <i class="fab fa-react"></i>
+      </div>
+      <div class="skillsets-social">
+        <h3>Follow me</h3>
+        <dl>
+          <dd>
+            <a href="https://dribbble.com/leesheppard"><i class="fab fa-dribbble"></i> Dribbble</a>
+          </dd>
+          <dd>
+            <a href="https://www.linkedin.com/in/leesheppard"><i class="fab fa-linkedin-in"></i> Linkedin</a>
+          </dd>
+          <dd class="rss-subscribe">
+            <i class="fal fa-rss-square"></i> subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
+          </dd>
+        </dl>
+      </div>
+    </div>
+
+    <nav class="site-nav">
+      <div class="trigger">
+        <dl>
+          {% for my_page in site.pages %}
+          {% if my_page.title %}
+          <dd>
+            <a class="page-link" href="{{ my_page.url | prepend: site.baseurl }}">{{ my_page.title }}</a>
+          </dd>
+          {% endif %}
+          {% endfor %}
+        </dl>
+      </div>
+    </nav>
+
+  </div>
+
+</footer>
+
+{% include analytics.html %}

@@ -1,0 +1,42 @@
+---
+title: Lee Sheppard
+timezone: Australia/Sydney
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+email: lee@leesheppard.com
+description: "I'm a Sydney based writer, cartoonist and code monkey. I've won various
+  awards in many industries. Member of SCBWI Australia/NZ."
+repository: "leesheppard/leesheppard.github.io"
+baseurl: "" # this must be an empty string
+url: http://leesheppard.github.io
+
+twitter_username: leesheppard
+github_username: leesheppard
+dribbble_username: leesheppard
+instagram_username: leesheppard
+linkedin_username: leesheppard
+
+author:
+  name: "Lee Sheppard"
+  bio: "I'm a Sydney based writer, cartoonist and code monkey. Member of SCBWI Australia/NZ."
+
+# Build settings
+github: [metadata]
+markdown: kramdown
+plugins_dir: ./_plugins
+jekyll_get:
+  - data: github
+    json: 'https://api.github.com/users/leesheppard/repos'
+    cache: false
+plugins:
+  - jekyll-watch
+  - jekyll-feed
+  - jekyll-sitemap
+exclude: ['.circleci', 'spec', '.travis.yml']
+destination: public
+source: src

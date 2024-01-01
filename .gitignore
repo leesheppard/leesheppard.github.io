@@ -1,0 +1,11 @@
+
+.sass-cache
+.jekyll-metadata
+.DS_Store
+.idea/
+.idea/workspace.xml
+.idea
+.now
+.run/leesheppard.github.io.run.xml
+.vscode
+.vercel
