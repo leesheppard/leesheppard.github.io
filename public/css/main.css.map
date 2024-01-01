@@ -3,9 +3,9 @@
 	"file": "main.css",
 	"sources": [
 		"main.scss",
-		"src/_sass/_base.scss",
-		"src/_sass/_layout.scss",
-		"src/_sass/_syntax-highlighting.scss"
+		"_sass/_base.scss",
+		"_sass/_layout.scss",
+		"_sass/_syntax-highlighting.scss"
 	],
 	"sourcesContent": [
 		"@charset \"utf-8\";\n\n// Our variables\n$base-font-family: 'Roboto', sans-serif;\n$header-font-family: 'Roboto Slab', serif;\n$base-font-size:   16px;\n$base-font-weight: 400;\n$small-font-size:  $base-font-size * 0.875;\n$base-line-height: 1.5;\n$spacing-unit:     30px;\n\n$text-color:       #111;\n$background-color: clear; //fdfdfd\n$brand-color:      #2a7ae2;\n$grey-color:       #828282;\n$grey-color-light: lighten($grey-color, 40%);\n$grey-color-dark:  darken($grey-color, 25%);\n\n// Dark wine reds\n$gondola: #280a1a;\n$seal-brown: #2e0b1d;\n$melanzane: #350c20;\n$toledo: #3b0d23;\n$very-dark-plum: #420f27;\n\n// Width of the content area\n$content-width:    800px;\n$on-palm:          600px;\n$on-laptop:        800px;\n\n@mixin media-query($device) {\n    @media screen and (max-width: $device) {\n        @content;\n    }\n}\n\n// Import partials from `sass_dir` (defaults to `_sass`)\n@import\n  \"base\",\n  \"layout\",\n  \"syntax-highlighting\"\n;\n",
