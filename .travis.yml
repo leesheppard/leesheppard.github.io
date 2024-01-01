@@ -3,7 +3,7 @@ dist: trusty
 language: ruby
 cache: bundler
 rvm:
- - 2.7.4
+ - 3.2.2
 bundler_args: --without development
 
 before_install:
@@ -31,7 +31,7 @@ jobs:
     deploy:
      provider: pages
      local-dir: ./public
-     target-branch: master
+     target-branch: release
      name: Travis Deployment Bot
      # Token generated at https://github.com/settings/tokens and added
      # to Travis environment variables.
